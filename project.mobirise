@@ -1,7 +1,7 @@
 {
   "settings": {
     "name": "TheRyanSite",
-    "currentPage": "page2.html",
+    "currentPage": "index.html",
     "theme": {
       "name": "default",
       "title": "Mobirise",
@@ -131,7 +131,7 @@
                 "showTitle": true,
                 "title": "Note 8 or iPhone X",
                 "contentAlign": "right",
-                "text": "With both phones coming in with a price tag<br>abve $900, are they worth the price?",
+                "text": "With both phones coming in with a price tag<br>above $900, are they worth the price?",
                 "buttons": "  <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-default\" href=\"page3.html\" data-toolbar=\"-mbrBtnMove\">Read</a>"
               },
               {
