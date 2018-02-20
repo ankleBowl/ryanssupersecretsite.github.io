@@ -1,7 +1,7 @@
 {
   "settings": {
     "name": "TheRyanSite",
-    "currentPage": "index.html",
+    "currentPage": "page5.html",
     "theme": {
       "name": "default",
       "title": "Mobirise",
@@ -1251,9 +1251,9 @@
               "size": 0
             }
           },
-          "title3": "Comming Soon",
-          "caption3": "Comming Soon",
-          "button3": "<a data-app-btn=\"true\" href=\"https://mobirise.com\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\">Comming Soon</a>",
+          "title3": "Coming Soon",
+          "caption3": "Coming Soon",
+          "button3": "<a data-app-btn=\"true\" href=\"https://mobirise.com\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\">Coming Soon</a>",
           "media4": {
             "image": {
               "active": true,
@@ -1271,9 +1271,9 @@
               "size": 0
             }
           },
-          "title4": "Comming Soon",
-          "caption4": "Comming Soon",
-          "button4": "<a data-app-btn=\"true\" href=\"https://mobirise.com\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\">Comming Soon</a>",
+          "title4": "Coming Soon",
+          "caption4": "Coming Soon",
+          "button4": "<a data-app-btn=\"true\" href=\"https://mobirise.com\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\">Coming Soon</a>",
           "media5": {
             "image": {
               "active": true,
