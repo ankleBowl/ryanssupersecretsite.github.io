@@ -1,7 +1,7 @@
 {
   "settings": {
     "name": "TheRyanSite",
-    "currentPage": "page4.html",
+    "currentPage": "page2.html",
     "theme": {
       "name": "default",
       "title": "Mobirise",
@@ -10,7 +10,7 @@
     },
     "path": "@PROJECT_PATH@",
     "versionFirst": "4.6.5",
-    "uniqCompNum": 38,
+    "uniqCompNum": 41,
     "versionPublish": "4.6.5",
     "screenshot": "screenshot.png",
     "favicon": "@PROJECT_PATH@/assets/images/csm-rgb-oneplus5t-teaser-798e0a03ae-128x88-2.png",
@@ -154,7 +154,7 @@
                 "title": "Top 11 iOS 11 Tweaks",
                 "contentAlign": "center",
                 "text": "11 for 11. 11 Tweaks that have been updated for iOS 11 and electra that enhance the user experiance",
-                "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"https://mobirise.com\" data-toolbar=\"-mbrBtnMove\">Read</a> "
+                "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"page7.html\" data-toolbar=\"-mbrBtnMove\">Read</a> "
               }
             ]
           },
@@ -777,7 +777,7 @@
               "size": 0
             }
           },
-          "title3": "Top 11 iOS 11 Tweaks",
+          "title3": "<a href=\"page7.html\">Top 11 iOS 11 Tweaks</a>",
           "caption3": "11 for 11. 11 Tweaks that have been updated for iOS 11 and electra that enhance the user experiance",
           "button3": "<a data-app-btn=\"true\" href=\"https://mobirise.com\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\">LEARN MORE</a>",
           "media4": {
@@ -1110,7 +1110,7 @@
     "page5.html": {
       "settings": {
         "meta_descr": "Web Site Generator Description",
-        "title": "Page 5",
+        "title": "Tweaks Themes",
         "order": 3
       },
       "components": [
@@ -1210,7 +1210,7 @@
           },
           "title1": "Android 8 Theme",
           "caption1": "The Icons extracted from an Android 8 theme apk and then converted for Anemone on iOS devices",
-          "button1": "<a data-app-btn=\"true\" href=\"https://mobirise.com\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\">Download</a>",
+          "button1": "<a data-app-btn=\"true\" href=\"https://www.dropbox.com/s/dan3jhijgzt2gvl/Android%208.zip?dl=0\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\" target=\"_blank\">Download</a>",
           "media2": {
             "image": {
               "src": "images/responsive.png",
@@ -1506,6 +1506,26 @@
           ],
           "_name": "menu",
           "_anchor": "menu-10"
+        },
+        {
+          "_params": {
+            "showMeta": true
+          },
+          "title": "Top 11 iOS 11 Tweaks",
+          "meta": "By Ryan",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "header3",
+          "_anchor": "header3-12"
+        },
+        {
+          "text": "<p>With the relese of Electra and a working substrate alternative for kppless jailbreaks, tweaks have been developed very quickly. Here are 11 of the best tweaks for iOS 11 to enhance the user experiance</p><p><br></p><p>1. Safari Plus</p><p>This tweak allows you to customize almost anything about safari, from where downloads are saved, to choosing to only load desktop websites. You can disable private browsing mode or use it as your primary browsing mode. You can even maximize screen space and remove the bars when scrolling down.</p><p><br></p><p>2. BioProtect X</p><p>Bioprotect recently debuted its iOS 11 update. Though many are experiancing bugs, I myself however have not, and I'm sure many others have not too. BioProtect is a simple tweak that allows you to induvdually lock apps, folders, siri, the app switcher, and even shutting down. Best of all, it is simple and convenient as you unlock with your face or finger. Price: $3</p><p><br></p><p>3. Anemone</p><p>Debuting with the first beta of Electra, this tweak allows you to do many things to customize your device. You can apply themes, icon masks, and even use html widgets. This tweak is a must have for anyone who wants to customize their device</p><p><br></p><p>4. Iconoclasm</p><p>Another very important tweak for those who love customization. This tweak is in many ways similar to Anchor, but instead allows you to place icons outside the grid system. You can use <a href=\"https://layoutmaker.herokuapp.com\" target=\"_blank\">this</a> app to create custom layouts, and the tweak comes with 10 built in.</p><p><br></p><p>5. iOS Blocks</p><p>Another form of placing widgets on your home screen, iOS Blocks just released its iOS 11 and aims at creating freely moving widgets you can place anywhere on your homescreen</p><p><br></p><p>6. HideLabels10</p><p>Don't let the name decieve you. HideLabels10 does work on iOS 11, despite the name that details iOS 10. The name is what it seems. It hides app labels on every app you have. It provides a clean and minimalistic style.</p><p><br></p><p>7. Fluidity</p><p>iPhone X users, be dissapointed. This tweak dosen't apply to you becuase it comes with stock iOS. Essentialy it will give you iPhone X gestures on older devices, such as swiping up to go home, or holding the volume down and power button to shut down.</p><p><br></p><p>8. BounceNotify</p><p>This tweak simply says what it does. If you have a notification from an app on your dock, it will bounce into the air, giving you an obvious alert. This tweak lends itself even more becuase your most important apps are on your dock, so therefore you get instant notification of notifications.</p><p><br></p><p>9. Pikabu</p><p>New tweaks are being pushed to hide the ridiculous volume hud and to move it somewhere where it will go unoticed. This tweak however, is special. Designed for the iPhone X, it changes the volume hud into the same one Apollo for Reddit uses, or in simpler terms, moves the volume hud into the notch. As if this tweak couldn't get better, you can even drag and move it around the screen.</p><p><br></p><p>10. XBarRemover</p><p>On the contrary of fluidity, this tweak is only for iPhone X users. This tweak supposedly removes the iPhone X navigation bar, becuase we all know where it is, right? It provides a clean look considering on how the bar stands out on apps that can be themed dark such as reddit, or if you are using a tweak like Eclipse.</p><p><br></p><p>11. Eclipse X</p><p>The first tweak to bring a true dark mode to iOS. Eclipse X automatically themes every app dark, and turns off the pixels if you are using an OLED display. Battery can last up to 2 days with this tweak, and is something that should have came with the iPhone X in stock iOS.</p><p><br></p><p><br></p>",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "content1",
+          "_anchor": "content1-13"
         },
         {
           "_params": {
