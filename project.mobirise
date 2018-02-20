@@ -97,7 +97,7 @@
           },
           "title": "TechX2",
           "text": "The latest in Technology Trends",
-          "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg animated fadeInUp delay btn-link\" href=\"page1.html\" data-toolbar=\"-mbrBtnMove\">Jailbreak your Phone</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg animated fadeInUp delay btn-link\" href=\"https://mobirise.com\" data-toolbar=\"-mbrBtnMove\">Our Youtube Channel</a>",
+          "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg animated fadeInUp delay btn-link\" href=\"page1.html\" data-toolbar=\"-mbrBtnMove\">Jailbreak your Phone</a> <a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg animated fadeInUp delay btn-link\" href=\"page1.html\" data-toolbar=\"-mbrBtnMove\">iOS Themes and Tweaks</a> ",
           "_tags": [
             "Theme"
           ],
