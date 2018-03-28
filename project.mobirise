@@ -1,7 +1,7 @@
 {
   "settings": {
     "name": "TheRyanSite",
-    "currentPage": "index.html",
+    "currentPage": "page1.html",
     "theme": {
       "name": "default",
       "title": "Mobirise",
@@ -10,7 +10,7 @@
     },
     "path": "@PROJECT_PATH@",
     "versionFirst": "4.6.5",
-    "uniqCompNum": 41,
+    "uniqCompNum": 57,
     "versionPublish": "4.6.5",
     "screenshot": "screenshot.png",
     "favicon": "@PROJECT_PATH@/assets/images/csm-rgb-oneplus5t-teaser-798e0a03ae-128x88-2.png",
@@ -140,9 +140,9 @@
                 "showButtons": true,
                 "showText": true,
                 "showTitle": true,
-                "title": "iOS 11 and Electra",
+                "title": "iOS Theme Development",
                 "contentAlign": "left",
-                "text": "The devlopment Jailbreak taking a leardership role in iOS 11 tweak development",
+                "text": "Have your own working theme on either Cydia or iskin.tooliphone.net",
                 "buttons": "<a data-app-btn=\"true\" class=\"mbr-buttons__btn btn btn-lg btn-danger\" href=\"https://mobirise.com\" data-toolbar=\"-mbrBtnMove\">Read<br></a>  "
               },
               {
@@ -206,7 +206,7 @@
       "settings": {
         "meta_descr": "Website Builder Description",
         "title": "Jailbreaking Guide",
-        "order": 7
+        "order": 10
       },
       "components": [
         {
@@ -316,8 +316,8 @@
             }
           },
           "title1": "Electra",
-          "caption1": "For iOS 11 - 11.1.2. Works on every device, in development - Beta 11- 3.&nbsp;",
-          "button1": "<a data-app-btn=\"true\" href=\"https://coolstar.org/electra/\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\" target=\"_blank\">Download</a> <a data-app-btn=\"true\" href=\"page4.html\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\">Installation Guide</a> <a data-app-btn=\"true\" href=\"https://mobirise.com\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\">Tweak Installation Guide</a>",
+          "caption1": "For iOS 11 - 11.1.2. Electra version 1.0.4. Project has stopped recieving updates. Best iOS 11 jailbreak avalible",
+          "button1": "<a data-app-btn=\"true\" href=\"https://coolstar.org/electra/\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\" target=\"_blank\">Download</a> <a data-app-btn=\"true\" href=\"page4.html\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\">Installation Guide</a> ",
           "media2": {
             "image": {
               "src": "images/responsive.png",
@@ -526,9 +526,9 @@
               "active": true
             }
           },
-          "title3": "Saigon (Discontinued)",
-          "caption3": "Discontinued - iOS 10.2.1 Jailbreak for iPad Air 2. IPhone 5s, IPhone SE, IPhone 6/6+, and IPhone 6s/6s+",
-          "button3": "<a data-app-btn=\"true\" href=\"https://iabem97.github.io/saigon_website/\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\" target=\"_blank\">Download</a> <a data-app-btn=\"true\" href=\"page4.html\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\">Installation Guide</a>",
+          "title3": "DoubleH3lix",
+          "caption3": "Every 64bit device running iOS 10 exept iPhone 7/7+. Uses the same exploit as G0blin.",
+          "button3": "<a data-app-btn=\"true\" href=\"https://doubleh3lix.tihmstar.net\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\" target=\"_blank\">Download</a> <a data-app-btn=\"true\" href=\"page4.html\" class=\"mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default\" data-toolbar=\"-mbrBtnMove\">Installation Guide</a>",
           "media4": {
             "image": {
               "src": "images/unlimited-websites.png",
@@ -639,7 +639,7 @@
       "settings": {
         "meta_descr": "Web Site Creator Description",
         "title": "Articles",
-        "order": 6
+        "order": 9
       },
       "components": [
         {
@@ -889,7 +889,7 @@
       "settings": {
         "meta_descr": "Web Creator Description",
         "title": "Note 8 vs iPhone X",
-        "order": 5
+        "order": 8
       },
       "components": [
         {
@@ -1000,7 +1000,7 @@
       "settings": {
         "meta_descr": "Web Page Builder Description",
         "title": "Installation Guide Cydia Impactor",
-        "order": 4
+        "order": 7
       },
       "components": [
         {
@@ -1111,7 +1111,7 @@
       "settings": {
         "meta_descr": "Web Site Generator Description",
         "title": "Tweaks Themes",
-        "order": 3
+        "order": 6
       },
       "components": [
         {
@@ -1366,7 +1366,7 @@
       "settings": {
         "meta_descr": "Site Builder Description",
         "title": "Page 6",
-        "order": 2
+        "order": 5
       },
       "components": [
         {
@@ -1457,7 +1457,7 @@
       "settings": {
         "meta_descr": "Web Page Builder Description",
         "title": "Top 11 iOS 11 Tweaks",
-        "order": 1
+        "order": 4
       },
       "components": [
         {
