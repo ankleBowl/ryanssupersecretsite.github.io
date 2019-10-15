@@ -1,0 +1,16 @@
+{
+"companyName": "DefaultCompany",
+"productName": "SMR",
+"dataUrl": "TopDownShooter-1.1.0a.data.unityweb",
+"wasmCodeUrl": "TopDownShooter-1.1.0a.wasm.code.unityweb",
+"wasmFrameworkUrl": "TopDownShooter-1.1.0a.wasm.framework.unityweb",
+"asmCodeUrl": "TopDownShooter-1.1.0a.asm.code.unityweb",
+"asmMemoryUrl": "TopDownShooter-1.1.0a.asm.memory.unityweb",
+"asmFrameworkUrl": "TopDownShooter-1.1.0a.asm.framework.unityweb",
+"TOTAL_MEMORY": 134217728,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"}
+}
