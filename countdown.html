@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+        <title>Time Remaining</title>
+        <style>
+            body {
+                text-align:center;
+                background-color:#ffd1ea;
+                font-family: 'Open Sans', sans-serif;
+            }
+
+            .header {
+                font-size:35px;
+            }
+
+            .roundedBox {
+                background-color:#f2edf1;
+                border-radius:10px;
+                margin:auto;
+                min-width:300px;
+                width:50%;
+                max-width:500px;
+                
+            }
+
+        </style>
+    </head>
+    <body>
+        <p class="header">Time Remaining</p>
+        <div class="roundedBox">
+            <br>
+            <p>Time Reamining</p>
+            <p id="time"></p>
+            <br>
+        </div>
+    </body>
+    <script>
+        var futureTime = new Date(2020, 9, 10, 19, 0, 0, 0);
+
+        setInterval(function() {
+            var now = new Date().getTime();
+            var timeleft = futureTime - now;
+                
+            var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+            //alert(days + ":" + hours + ":" + minutes + ":" + seconds);
+            document.getElementById("time").innerHTML = days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " seconds.";
+        }, 1000)
+    </script>
+</html>
