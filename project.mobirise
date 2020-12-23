@@ -1,0 +1,1137 @@
+{
+  "settings": {
+    "name": "Rypixel Official",
+    "currentPage": "page2.html",
+    "theme": {
+      "name": "mobirise-amp",
+      "title": "Mobirise AMP",
+      "styling": {
+        "primaryColor": "#4ea2e3",
+        "secondaryColor": "#4addff",
+        "successColor": "#0dcd7b",
+        "infoColor": "#8282e7",
+        "warningColor": "#767676",
+        "dangerColor": "#a0a0a0",
+        "mainFont": "Roboto",
+        "display1Font": "Roboto",
+        "display1Size": 4.5,
+        "display2Font": "Roboto",
+        "display2Size": 2.2,
+        "display5Font": "Roboto",
+        "display5Size": 1.8,
+        "display7Font": "Roboto",
+        "display7Size": 1.1,
+        "display4Font": "Roboto",
+        "display4Size": 0.9,
+        "isRoundedButtons": false,
+        "isScrollToTopButton": false,
+        "arrowColor": "#4ea2e3"
+      },
+      "additionalSetColors": []
+    },
+    "path": "@PROJECT_PATH@",
+    "versionFirst": "4.12.4",
+    "siteFonts": [
+      {
+        "css": "'Roboto', sans-serif",
+        "name": "Roboto",
+        "url": "https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
+      }
+    ],
+    "imageResize": true,
+    "uniqCompNum": 40,
+    "versionPublish": "4.12.4",
+    "screenshot": "screenshot.png"
+  },
+  "pages": {
+    "index.html": {
+      "settings": {
+        "main": true,
+        "title": "Home",
+        "meta_descr": "",
+        "header_custom": "",
+        "footer_custom": "",
+        "html_before": ""
+      },
+      "components": [
+        {
+          "alias": false,
+          "_styles": {
+            "min-height": "80px",
+            ".brand-name": {
+              "color": "@primaryColor",
+              "margin": "0"
+            },
+            ".hamburger span, .close-sidebar span": {
+              "background": "@hamburgerColor"
+            },
+            ".nav-dropdown .dropdown-menu .dropdown-item": {
+              "font-weight": "400",
+              "width": "100%",
+              "text-align": "inherit"
+            },
+            ".navbar": {
+              "min-height": "80px",
+              "background": "@menuBgColor",
+              ".navbar-collapse": {
+                "& when not (@showItems)": {
+                  "display": "none !important"
+                }
+              },
+              "@media (max-width: 991px)": {
+                ".navbar-collapse": {
+                  "& when (@sidebarSide = 'left')": {
+                    "right": "auto",
+                    "left": "0"
+                  }
+                },
+                ".navbar-brand": {
+                  "flex-shrink": "initial"
+                }
+              }
+            },
+            ".navbar-brand": {
+              "flex-shrink": "0",
+              "margin-right": "0",
+              "padding": "0"
+            },
+            "@media (min-width: 992px)": {
+              ".navbar-expand-lg .navbar-nav .nav-link": {
+                "padding": "0"
+              },
+              ".navbar-nav .nav-link": {
+                "margin": ".667em 1em !important"
+              }
+            },
+            ".navbar-dropdown": {
+              "padding": ".5rem 0"
+            },
+            ".builder-sidebar, .collapse, .navbar.navbar-expand-lg .dropdown .dropdown-menu": {
+              "background-color": "@menuBgColor"
+            },
+            "@media (max-width: 991px)": {
+              ".navbar-nav a": {
+                "padding": "0.5rem 0 !important",
+                "margin": "0 0 10px !important"
+              }
+            },
+            ".close-sidebar:focus": {
+              "outline": "2px auto @primaryColor"
+            },
+            "amp-img": {
+              "height": "~\"@{logoHeight}px\"",
+              "width": "~\"@{logoWidth}px\"",
+              "img": {
+                "object-fit": "contain"
+              }
+            }
+          },
+          "_name": "menu2",
+          "_customHTML": "<section class=\"menu horizontal-menu\" group=\"Menu\" plugins=\"amp-main,amp-sidebar\" global once=\"menu\" always-top position-absolute>\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"checkbox\" title=\"Show Logo\" name=\"showLogo\" checked>\n        <input type=\"range\" title=\"Logo Height\" inline name=\"logoHeight\" min=\"35\" max=\"120\" value=\"45\" step=\"1\" condition=\"showLogo\">\n        <input type=\"range\" title=\"Logo Width\" inline name=\"logoWidth\" min=\"35\" max=\"120\" value=\"45\" step=\"1\" condition=\"showLogo\">\n        <input type=\"checkbox\" title=\"Show Brand Name\" name=\"showBrand\" checked>\n        <input type=\"checkbox\" title=\"Show Menu Items\" name=\"showItems\" checked>\n        <input type=\"checkbox\" title=\"Show Button(s)\" name=\"showButtons\" checked>\n        <input type=\"checkbox\" title=\"Sticky\" name=\"sticky\" checked>\n        <select title=\"Sidebar Side\" name=\"sidebarSide\">\n            <option value=\"left\">Left</option>\n            <option value=\"right\" selected>Right</option>\n        </select>\n        <input type=\"color\" title=\"Hamburger Color\" name=\"hamburgerColor\" value=\"#4ea2e3\">\n        <input type=\"color\" title=\"Background Color\" name=\"menuBgColor\" value=\"#ffffff\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    \n\n    <nav class=\"navbar navbar-dropdown navbar-expand-lg\" mbr-class=\"{'navbar-fixed-top':sticky}\">\n       <div class=\"menu-container container-fluid\" mbr-class=\"{'mbr-jc-e': !showBrand && !showLogo}\"> \n      <div class=\"navbar-brand\" mbr-if=\"showLogo || showBrand\">\n          <span mbr-if=\"showLogo\" class=\"navbar-logo\">\n              <amp-img src=\"@THEME_PATH@/components/_images/logo1.png\" layout=\"responsive\" width=\"45.71808510638298\" height=\"45\" alt=\"Mobirise\" class=\"mobirise-loader\">\n                  <div placeholder class=\"placeholder\"></div>\n                  <img class=\"mbr-temp\" src=\"@THEME_PATH@/components/_images/logo1.png\" alt=\"Mobirise\">\n              </amp-img>\n          </span>\n          <p mbr-text mbr-theme-style=\"display-5\" mbr-if=\"showBrand\" class=\"brand-name mbr-fonts-style mbr-bold\" data-app-selector=\".brand-name\">Rypixel Studios</p>\n      </div>\n      <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n            <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\" mbr-if=\"showItems||showButtons\">\n                <div class=\"hamburger\">\n                    <span></span>\n                    <span></span>\n                    <span></span>\n                    <span></span>\n                </div>\n            </button>\n            <ul mbr-menu class=\"navbar-nav nav-dropdown\" mbr-theme-style=\"display-7\" mbr-if=\"showItems\" mbr-class=\"{'navbar-nav-top-padding': isPublish && !showBrand && !showLogo}\"><li class=\"nav-item\">\n                    <a class=\"nav-link link text-primary\" href=\"page1.html\" data-app-selector=\".nav-link,.dropdown-item\" data-app-placeholder=\"Type Text\">Minecraft Plugins</a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link link text-primary\" href=\"page3.html\" data-app-selector=\".nav-link,.dropdown-item\" data-app-placeholder=\"Type Text\">Infinite Jump</a>\n                </li></ul>\n            \n            <div mbr-if=\"showButtons\" mbr-buttons mbr-theme-style=\"display-7\" class=\"navbar-buttons mbr-section-btn align-center\"><a class=\"btn btn-sm btn-primary\" href=\"page2.html\" data-app-placeholder=\"Type Text\">\n                  Downloads</a></div>\n      </div>\n      <button class=\"navbar-toggler hide\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\" mbr-if=\"showItems||showButtons\">\n          <div class=\"hamburger\">\n              <span></span>\n              <span></span>\n              <span></span>\n              <span></span>\n          </div>\n      </button>\n      <button on=\"tap:sidebar.toggle\" class=\"ampstart-btn hamburger\" mbr-class=\"{'sticky-but':sticky}\" mbr-if=\"showItems||showButtons\">\n        <span></span>\n        <span></span>\n        <span></span>\n        <span></span>\n    </button>\n        </div>\n    </nav>\n\n  <!-- AMP plug -->\n    <amp-sidebar id=\"sidebar\" layout=\"nodisplay\" side=\"{{sidebarSide}}\">\n        <div class=\"builder-sidebar\" id=\"builder-sidebar\">\n            <button on=\"tap:sidebar.close\" class=\"close-sidebar\">\n                <span></span>\n                <span></span>\n            </button>\n        </div>\n    </amp-sidebar>\n\n</section>",
+          "_cid": "sk22om5Yp9",
+          "_anchor": "menu2-0",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "menu",
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 15px)",
+              "padding-bottom": "(@paddingBottom * 15px)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            ".mbr-section-title": {
+              "text-align": "center",
+              "color": "#ffffff"
+            }
+          },
+          "_name": "header4",
+          "_customHTML": "<section class=\"header4\" group=\"Headers\" plugins=\"amp-main\" mbr-class=\"{'mbr-fullscreen': fullScreen}\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\" condition=\"fullScreen == false\">\n        \n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Text\" name=\"showText\">\n        <input type=\"checkbox\" title=\"Show Buttons\" name=\"showButtons\">\n\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/background2.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#4ea2e3\" selected> \n        </fieldset>\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <h1 class=\"mbr-fonts-style mbr-section-title align-left mbr-black mbr-bold mbr-pt-1 mbr-pb-3\" mbr-theme-style=\"display-1\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">Rypixel Studios</h1>\n        <h2 class=\"mbr-fonts-style mbr-section-subtitle align-left mbr-black mbr-light mbr-pb-2\" mbr-theme-style=\"display-2\" mbr-if=\"showText\" data-app-selector=\".mbr-section-subtitle, .mbr-section-btn\"></h2>\n        <div class=\"mbr-section-btn align-left\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-4\">\n            <a class=\"btn btn-md btn-black\" href=\"https://mobirise.co\">\n                TRY IT\n            </a>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk22IiYuqT",
+          "_anchor": "header4-2",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            }
+          },
+          "_name": "content1",
+          "_customHTML": "<section class=\"mbr-section content1\" group=\"Article\" plugins=\"amp-main\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"4\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"4\">\n\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubtitle\">\n        <input type=\"checkbox\" title=\"Show Buttons\" name=\"showButtons\">\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/background2.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected>\n        </fieldset>\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n     <div class=\"container\">\n        <div class=\"mbr-row mbr-jc-c\">\n            <div class=\"mbr-col-sm-12 mbr-col-md-8\">\n                <h2 mbr-if=\"showTitle\" class=\"mbr-title align-center mbr-fonts-style mbr-bold mbr-pb-2\" mbr-theme-style=\"display-2\" data-app-selector=\".mbr-title\">\n                    Projects</h2>\n                <h3 mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\" class=\"mbr-section-subtitle align-center mbr-light mbr-fonts-style\" mbr-theme-style=\"display-5 mbr-pt-1 mbr-pb-3\">\n                    <i>Shape your future web project with sharp design and refine coded functions.</i>\n                </h3>\n                <div class=\"mbr-section-btn align-center mbr-pt-3\" mbr-if=\"showButtons\" mbr-buttons mbr-theme-style=\"display-4\" data-toolbar=\"-mbrBtnAdd,-mbrBtnMove\">\n                    <a class=\"btn btn-primary\" href=\"https://mobirise.co\">LEARN MORE</a>\n                    <a class=\"btn btn-black-outline\" href=\"https://mobirise.co\">LIVE DEMO</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk23wpXT5F",
+          "_anchor": "content1-6",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            ".card": {
+              ".card-wrapper": {
+                "background": "@cardBg",
+                "@media (max-width: 767px)": {
+                  "padding-top": "1rem"
+                }
+              },
+              "& when (@cardsAmount = '4')": {
+                "@media (min-width: 992px)": {
+                  "padding-left": "1rem",
+                  "padding-right": "1rem"
+                }
+              }
+            },
+            ".card-img amp-img": {
+              "width": "50%"
+            },
+            ".card-subtitle": {
+              "letter-spacing": "3px"
+            },
+            ".card-box": {
+              "@media (max-width: 767px)": {
+                "padding": "1rem"
+              }
+            },
+            ".mbr-row when (@cardsAmount < '4')": {
+              "margin-left": "-1.5rem",
+              "margin-right": "-1.5rem"
+            },
+            ".mbr-row when (@cardsAmount = '4')": {
+              "@media (max-width: 991px)": {
+                "margin-left": "-1.5rem",
+                "margin-right": "-1.5rem"
+              }
+            },
+            "& when (@showSocial)": {
+              ".iconfont-wrapper, .amp-iconfont": {
+                "width": "~\"@{iconsSize}rem\"",
+                "height": "~\"@{iconsSize}rem\"",
+                "font-size": "~\"@{iconsSize}rem\"",
+                "color": "@iconsColor",
+                "& when ((@iconsSize * 16) > 30)": {
+                  "@media (max-width: 767px)": {
+                    "font-size": "30px",
+                    "height": "30px",
+                    "width": "30px"
+                  }
+                }
+              }
+            }
+          },
+          "_name": "team1",
+          "_customHTML": "<section class=\"team1 mbr-section\" group=\"Testimonials &amp; Teams\" plugins=\"amp-main\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"9\" step=\"1\" value=\"2\">\n        <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"9\" step=\"1\" value=\"2\">\n        <input type=\"checkbox\" title=\"Show Specialty\" name=\"showSpecialty\">\n        <input type=\"checkbox\" title=\"Show Name\" name=\"showName\" checked=\"\">\n        <input type=\"checkbox\" title=\"Show Text\" name=\"showText\" checked=\"\">\n        \n        <input type=\"checkbox\" title=\"Show Social\" name=\"showSocial\">\n        <input type=\"range\" inline=\"\" title=\"Social Count\" name=\"iconsCount\" min=\"1\" max=\"9\" step=\"1\" value=\"3\" condition=\"showSocial\">\n        <input type=\"color\" title=\"Social Color\" name=\"iconsColor\" value=\"#232323\" condition=\"showSocial\">\n        <input type=\"range\" inline=\"\" title=\"Size Social\" name=\"iconsSize\" min=\"0.8\" max=\"4\" step=\"0.1\" value=\"1.5\" condition=\"showSocial\">\n        \n        <select title=\"Cards\" name=\"cardsAmount\">\n            <option value=\"1\">1</option>\n            <option value=\"2\" selected=\"\">2</option>\n            <option value=\"3\">3</option>\n            <option value=\"4\">4</option>\n        </select>\n        <input type=\"color\" title=\"Card BG\" name=\"cardBg\" value=\"#eaeaea\">\n\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/background6.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected=\"\">\n        </fieldset>\n    <!-- End block parameters -->\n    </mbr-parameters>\n    \n    <div class=\"container\">\n        <div class=\"mbr-row mbr-jc-c\">\n            <div class=\"card mbr-col-sm-12 mbr-col-md-6 mbr-px-3\" mbr-class=\"{'mbr-col-lg-4': cardsAmount <= 3,\n                             'mbr-col-lg-3': cardsAmount > 3, 'md-pb': cardsAmount > 2, 'last-child': cardsAmount == 1}\">\n                <div class=\"card-wrapper mbr-pt-5\">\n                    <div class=\"card-img\">\n                        <amp-img src=\"@PROJECT_PATH@/assets/images/rypixel-336x336.png\" layout=\"responsive\" width=\"168\" height=\"168\" alt=\"Mobirise\" class=\"mobirise-loader rounded mbr-m-auto\">\n                            <div placeholder=\"\" class=\"placeholder\"></div>\n                            <img class=\"mbr-temp rounded\" src=\"@PROJECT_PATH@/assets/images/rypixel-336x336.png\" alt=\"Mobirise\" title=\"\">\n                        </amp-img>\n                    </div>\n                    <div class=\"card-box mbr-pt-4 mbr-px-4 mbr-pb-5\">\n                        <h4 class=\"mbr-fonts-style card-subtitle align-center mbr-semibold\" mbr-theme-style=\"display-4\" data-app-selector=\".card-subtitle, .social\" mbr-if=\"showSpecialty\">ARTIST</h4>\n                        <h3 class=\"card-title mbr-fonts-style align-center mbr-pt-1\" mbr-theme-style=\"display-5\" mbr-if=\"showName\" data-app-selector=\".card-title, .social\" mbr-class=\"{'mbr-pb-3': showText}\"><a href=\"page1.html\">Minecraft Plugins</a></h3>\n                        <p class=\"mbr-text mbr-fonts-style align-center mbr-pt-1\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .social\">Simple assorted Spigot plugins I created</p>\n                        <div class=\"icons-list social align-center\" mbr-list=\"\" mbr-list-grow=\"iconsCount\" mbr-if=\"showSocial\" mbr-class=\"{'mbr-pt-3': showText || showName || showSpecialty}\">\n                            <a href=\"https://www.facebook.com/pages/Mobirise/1616226671953247\" target=\"_blank\">\n                                <span class=\"iconfont-wrapper\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-facebook-f fa\"></span>\n                                </span>\n                            </a>\n                            <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                <span class=\"iconfont-wrapper\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-twitter fa\"></span>\n                                </span>\n                            </a>\n                            <a href=\"https://plus.google.com/u/0/+Mobirise/posts\" target=\"_blank\">\n                                <span class=\"iconfont-wrapper\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-google-plus fa\"></span>\n                                </span>\n                            </a>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            \n            <div class=\"card mbr-col-sm-12 mbr-col-md-6 mbr-px-3\" mbr-class=\"{'mbr-col-lg-4': cardsAmount <= 3,\n                             'mbr-col-lg-3': cardsAmount > 3, 'md-pb': cardsAmount > 2, 'last-child': cardsAmount == 2}\" mbr-if=\"cardsAmount > 1\">\n                <div class=\"card-wrapper mbr-pt-5\">\n                    <div class=\"card-img\">\n                        <amp-img src=\"@PROJECT_PATH@/assets/images/infinatejum-336x336.png\" layout=\"responsive\" height=\"168\" width=\"168\" alt=\"Mobirise\" class=\"mobirise-loader rounded mbr-m-auto\">\n                            <div placeholder=\"\" class=\"placeholder\"></div>\n                            <img class=\"mbr-temp rounded\" src=\"@PROJECT_PATH@/assets/images/infinatejum-336x336.png\" alt=\"Mobirise\" title=\"\">\n                        </amp-img>\n                    </div>\n                    <div class=\"card-box mbr-pt-4 mbr-px-4 mbr-pb-5\">\n                        <h4 class=\"mbr-fonts-style card-subtitle align-center mbr-semibold\" mbr-theme-style=\"display-4\" data-app-selector=\".card-subtitle, .social\" mbr-if=\"showSpecialty\">DESIGNER</h4>\n                        <h3 class=\"card-title mbr-fonts-style align-center mbr-pt-1\" mbr-theme-style=\"display-5\" mbr-if=\"showName\" data-app-selector=\".card-title, .social\" mbr-class=\"{'mbr-pb-3': showText}\"><a href=\"page3.html\">Infinite Jump</a></h3>\n                        <p class=\"mbr-text mbr-fonts-style align-center mbr-pt-1\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .social\">\n                            An ad free mobile game in which you infinately climb to avoid rising lava</p>\n                        <div class=\"icons-list social align-center\" mbr-list=\"\" mbr-list-grow=\"iconsCount\" mbr-if=\"showSocial\" mbr-class=\"{'mbr-pt-3': showText || showName || showSpecialty}\">\n                            <a href=\"https://www.facebook.com/pages/Mobirise/1616226671953247\" target=\"_blank\">\n                                <span class=\"iconfont-wrapper\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-facebook-f fa\"></span>\n                                </span>\n                            </a>\n                            <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                <span class=\"iconfont-wrapper\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-twitter fa\"></span>\n                                </span>\n                            </a>\n                            <a href=\"https://plus.google.com/u/0/+Mobirise/posts\" target=\"_blank\">\n                                <span class=\"iconfont-wrapper\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-google-plus fa\"></span>\n                                </span>\n                            </a>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        \n            <div class=\"card mbr-col-sm-12 mbr-col-md-6 mbr-px-3\" mbr-class=\"{'mbr-col-lg-4': cardsAmount <= 3,\n                             'mbr-col-lg-3': cardsAmount > 3, 'last-child': cardsAmount == 3}\" mbr-if=\"cardsAmount > 2\">\n                <div class=\"card-wrapper mbr-pt-5\">\n                    <div class=\"card-img\">\n                        <amp-img src=\"@THEME_PATH@/components/_images/face3.jpg\" layout=\"responsive\" height=\"100\" width=\"100\" alt=\"Mobirise\" class=\"mobirise-loader rounded mbr-m-auto\">\n                            <div placeholder=\"\" class=\"placeholder\"></div>\n                            <img class=\"mbr-temp rounded\" src=\"@THEME_PATH@/components/_images/face3.jpg\" alt=\"Mobirise\" title=\"\">\n                        </amp-img>\n                    </div>\n                    <div class=\"card-box mbr-pt-4 mbr-px-4 mbr-pb-5\">\n                        <h4 class=\"mbr-fonts-style card-subtitle align-center mbr-semibold\" mbr-theme-style=\"display-4\" data-app-selector=\".card-subtitle, .social\" mbr-if=\"showSpecialty\">PHOTOGRAPHER</h4>\n                        <h3 class=\"card-title mbr-fonts-style align-center mbr-pt-1\" mbr-theme-style=\"display-5\" mbr-if=\"showName\" data-app-selector=\".card-title, .social\" mbr-class=\"{'mbr-pb-3': showText}\">\n                            Matthew Reeves</h3>\n                        <p class=\"mbr-text mbr-fonts-style align-center mbr-pt-1\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .social\">\n                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus aperiam\n                        </p>\n                        <div class=\"icons-list social align-center\" mbr-list=\"\" mbr-list-grow=\"iconsCount\" mbr-if=\"showSocial\" mbr-class=\"{'mbr-pt-3': showText || showName || showSpecialty}\">\n                            <a href=\"https://www.facebook.com/pages/Mobirise/1616226671953247\" target=\"_blank\">\n                                <span class=\"iconfont-wrapper\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-facebook-f fa\"></span>\n                                </span>\n                            </a>\n                            <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                <span class=\"iconfont-wrapper\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-twitter fa\"></span>\n                                </span>\n                            </a>\n                            <a href=\"https://plus.google.com/u/0/+Mobirise/posts\" target=\"_blank\">\n                                <span class=\"iconfont-wrapper\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-google-plus fa\"></span>\n                                </span>\n                            </a>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"card mbr-col-sm-12 mbr-col-md-6 mbr-px-3\" mbr-class=\"{'mbr-col-lg-4': cardsAmount <= 3,\n                             'mbr-col-lg-3': cardsAmount > 3, 'last-child': cardsAmount == 4}\" mbr-if=\"cardsAmount > 3\">\n                <div class=\"card-wrapper mbr-pt-5 \">\n                    <div class=\"card-img\">\n                        <amp-img src=\"@THEME_PATH@/components/_images/face2.jpg\" layout=\"responsive\" height=\"100\" width=\"100\" alt=\"Mobirise\" class=\"mobirise-loader rounded mbr-m-auto\">\n                            <div placeholder=\"\" class=\"placeholder\"></div>\n                            <img class=\"mbr-temp rounded\" src=\"@THEME_PATH@/components/_images/face2.jpg\" alt=\"Mobirise\">\n                        </amp-img>\n                    </div>\n                    <div class=\"card-box mbr-pt-4 mbr-px-4 mbr-pb-5\">\n                        <h4 class=\"mbr-fonts-style card-subtitle align-center mbr-semibold\" mbr-theme-style=\"display-4\" data-app-selector=\".card-subtitle, .social\" mbr-if=\"showSpecialty\">DESIGNER</h4>\n                        <h3 class=\"card-title mbr-fonts-style align-center mbr-pt-1\" mbr-theme-style=\"display-5\" mbr-if=\"showName\" data-app-selector=\".card-title, .social\" mbr-class=\"{'mbr-pb-3': showText}\">Karin Miller</h3>\n                        <p class=\"mbr-text mbr-fonts-style align-center mbr-pt-1\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .social\">\n                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus aperiam\n                        </p>\n                        <div class=\"icons-list social align-center\" mbr-list=\"\" mbr-list-grow=\"iconsCount\" mbr-if=\"showSocial\" mbr-class=\"{'mbr-pt-3': showText || showName || showSpecialty}\">\n                            <a href=\"https://www.facebook.com/pages/Mobirise/1616226671953247\" target=\"_blank\">\n                                <span class=\"iconfont-wrapper\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-facebook-f fa\"></span>\n                                </span>\n                            </a>\n                            <a href=\"https://twitter.com/mobirise\" target=\"_blank\">\n                                <span class=\"iconfont-wrapper\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-twitter fa\"></span>\n                                </span>\n                            </a>\n                            <a href=\"https://plus.google.com/u/0/+Mobirise/posts\" target=\"_blank\">\n                                <span class=\"iconfont-wrapper\">\n                                    <span mbr-icon=\"\" class=\"amp-iconfont fa-google-plus fa\"></span>\n                                </span>\n                            </a>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk23tR625M",
+          "_anchor": "team1-5",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            }
+          },
+          "_name": "content1",
+          "_customHTML": "<section class=\"mbr-section content1\" group=\"Article\" plugins=\"amp-main\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"4\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubtitle\">\n        <input type=\"checkbox\" title=\"Show Buttons\" name=\"showButtons\">\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/background2.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected>\n        </fieldset>\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n     <div class=\"container\">\n        <div class=\"mbr-row mbr-jc-c\">\n            <div class=\"mbr-col-sm-12 mbr-col-md-8\">\n                <h2 mbr-if=\"showTitle\" class=\"mbr-title align-center mbr-fonts-style mbr-bold mbr-pb-2\" mbr-theme-style=\"display-2\" data-app-selector=\".mbr-title\">\n                    About</h2>\n                <h3 mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\" class=\"mbr-section-subtitle align-center mbr-light mbr-fonts-style\" mbr-theme-style=\"display-5 mbr-pt-1 mbr-pb-3\">\n                    <i>Shape your future web project with sharp design and refine coded functions.</i>\n                </h3>\n                <div class=\"mbr-section-btn align-center mbr-pt-3\" mbr-if=\"showButtons\" mbr-buttons mbr-theme-style=\"display-4\" data-toolbar=\"-mbrBtnAdd,-mbrBtnMove\">\n                    <a class=\"btn btn-primary\" href=\"https://mobirise.co\">LEARN MORE</a>\n                    <a class=\"btn btn-black-outline\" href=\"https://mobirise.co\">LIVE DEMO</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk25SiiNWT",
+          "_anchor": "content1-7",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "background-color": "@bgColor"
+          },
+          "_name": "content4",
+          "_customHTML": "<section class=\"content4 mbr-section article\" plugins=\"amp-main\" group=\"Article\">\n    \n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n    <!-- End block parameters -->\n    </mbr-parameters> \n\n    <div class=\"container\">\n        <div class=\"mbr-text align-center mbr-fonts-style mbr-light mbr-py-4\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-text\" mbr-text>\n            I am Ryan Pineda. \"Founder\" of Rypixel Studios. I am 14 years old and absolutely love computer science. I understand basic HTML/CSS/Javscript, UnityEngine/CSharp, and Python. My goal is to provide fun and entertaining software, but more importantly I want to do all this without paywalls and ads because I don't need to support myself yet. (of course that won't make me not include a donate button). If you'd like to contact me, please email me: ryanpineda@rypixel.net.</div>\n    </div>\n</section>",
+          "_cid": "sk264boYxp",
+          "_anchor": "content4-9",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            }
+          },
+          "_name": "footer1",
+          "_customHTML": "<section class=\"footer1\" group=\"Footers\" plugins=\"amp-main\" global once=\"footer\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/background6.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#232323\" selected>\n        </fieldset>\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"align-center mbr-white mbr-p-1\">\n            <p class=\"mbr-text mbr-fonts-style \" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-text\" data-app-placeholder=\"Type Text\">Created by Ryan Pineda. ryanpineda@rypixel.net</p>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk236In7Nt",
+          "_anchor": "footer1-3",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footer",
+          "_params": {}
+        }
+      ]
+    },
+    "page1.html": {
+      "settings": {
+        "title": "Rypixel",
+        "order": 3
+      },
+      "components": [
+        {
+          "alias": false,
+          "_styles": {
+            "min-height": "80px",
+            ".brand-name": {
+              "color": "@primaryColor",
+              "margin": "0"
+            },
+            ".hamburger span, .close-sidebar span": {
+              "background": "@hamburgerColor"
+            },
+            ".nav-dropdown .dropdown-menu .dropdown-item": {
+              "font-weight": "400",
+              "width": "100%",
+              "text-align": "inherit"
+            },
+            ".navbar": {
+              "min-height": "80px",
+              "background": "@menuBgColor",
+              ".navbar-collapse": {
+                "& when not (@showItems)": {
+                  "display": "none !important"
+                }
+              },
+              "@media (max-width: 991px)": {
+                ".navbar-collapse": {
+                  "& when (@sidebarSide = 'left')": {
+                    "right": "auto",
+                    "left": "0"
+                  }
+                },
+                ".navbar-brand": {
+                  "flex-shrink": "initial"
+                }
+              }
+            },
+            ".navbar-brand": {
+              "flex-shrink": "0",
+              "margin-right": "0",
+              "padding": "0"
+            },
+            "@media (min-width: 992px)": {
+              ".navbar-expand-lg .navbar-nav .nav-link": {
+                "padding": "0"
+              },
+              ".navbar-nav .nav-link": {
+                "margin": ".667em 1em !important"
+              }
+            },
+            ".navbar-dropdown": {
+              "padding": ".5rem 0"
+            },
+            ".builder-sidebar, .collapse, .navbar.navbar-expand-lg .dropdown .dropdown-menu": {
+              "background-color": "@menuBgColor"
+            },
+            "@media (max-width: 991px)": {
+              ".navbar-nav a": {
+                "padding": "0.5rem 0 !important",
+                "margin": "0 0 10px !important"
+              }
+            },
+            ".close-sidebar:focus": {
+              "outline": "2px auto @primaryColor"
+            },
+            "amp-img": {
+              "height": "~\"@{logoHeight}px\"",
+              "width": "~\"@{logoWidth}px\"",
+              "img": {
+                "object-fit": "contain"
+              }
+            }
+          },
+          "_name": "menu2",
+          "_customHTML": "<section class=\"menu horizontal-menu\" group=\"Menu\" plugins=\"amp-main,amp-sidebar\" global once=\"menu\" always-top position-absolute>\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"checkbox\" title=\"Show Logo\" name=\"showLogo\" checked>\n        <input type=\"range\" title=\"Logo Height\" inline name=\"logoHeight\" min=\"35\" max=\"120\" value=\"45\" step=\"1\" condition=\"showLogo\">\n        <input type=\"range\" title=\"Logo Width\" inline name=\"logoWidth\" min=\"35\" max=\"120\" value=\"45\" step=\"1\" condition=\"showLogo\">\n        <input type=\"checkbox\" title=\"Show Brand Name\" name=\"showBrand\" checked>\n        <input type=\"checkbox\" title=\"Show Menu Items\" name=\"showItems\" checked>\n        <input type=\"checkbox\" title=\"Show Button(s)\" name=\"showButtons\" checked>\n        <input type=\"checkbox\" title=\"Sticky\" name=\"sticky\" checked>\n        <select title=\"Sidebar Side\" name=\"sidebarSide\">\n            <option value=\"left\">Left</option>\n            <option value=\"right\" selected>Right</option>\n        </select>\n        <input type=\"color\" title=\"Hamburger Color\" name=\"hamburgerColor\" value=\"#4ea2e3\">\n        <input type=\"color\" title=\"Background Color\" name=\"menuBgColor\" value=\"#ffffff\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    \n\n    <nav class=\"navbar navbar-dropdown navbar-expand-lg\" mbr-class=\"{'navbar-fixed-top':sticky}\">\n       <div class=\"menu-container container-fluid\" mbr-class=\"{'mbr-jc-e': !showBrand && !showLogo}\"> \n      <div class=\"navbar-brand\" mbr-if=\"showLogo || showBrand\">\n          <span mbr-if=\"showLogo\" class=\"navbar-logo\">\n              <amp-img src=\"@THEME_PATH@/components/_images/logo1.png\" layout=\"responsive\" width=\"45.71808510638298\" height=\"45\" alt=\"Mobirise\" class=\"mobirise-loader\">\n                  <div placeholder class=\"placeholder\"></div>\n                  <img class=\"mbr-temp\" src=\"@THEME_PATH@/components/_images/logo1.png\" alt=\"Mobirise\">\n              </amp-img>\n          </span>\n          <p mbr-text mbr-theme-style=\"display-5\" mbr-if=\"showBrand\" class=\"brand-name mbr-fonts-style mbr-bold\" data-app-selector=\".brand-name\">Rypixel Studios</p>\n      </div>\n      <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n            <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\" mbr-if=\"showItems||showButtons\">\n                <div class=\"hamburger\">\n                    <span></span>\n                    <span></span>\n                    <span></span>\n                    <span></span>\n                </div>\n            </button>\n            <ul mbr-menu class=\"navbar-nav nav-dropdown\" mbr-theme-style=\"display-7\" mbr-if=\"showItems\" mbr-class=\"{'navbar-nav-top-padding': isPublish && !showBrand && !showLogo}\"><li class=\"nav-item\">\n                    <a class=\"nav-link link text-primary\" href=\"page1.html\" data-app-selector=\".nav-link,.dropdown-item\" data-app-placeholder=\"Type Text\">Minecraft Plugins</a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link link text-primary\" href=\"page3.html\" data-app-selector=\".nav-link,.dropdown-item\" data-app-placeholder=\"Type Text\">Infinite Jump</a>\n                </li></ul>\n            \n            <div mbr-if=\"showButtons\" mbr-buttons mbr-theme-style=\"display-7\" class=\"navbar-buttons mbr-section-btn align-center\"><a class=\"btn btn-sm btn-primary\" href=\"page2.html\" data-app-placeholder=\"Type Text\">\n                  Downloads</a></div>\n      </div>\n      <button class=\"navbar-toggler hide\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\" mbr-if=\"showItems||showButtons\">\n          <div class=\"hamburger\">\n              <span></span>\n              <span></span>\n              <span></span>\n              <span></span>\n          </div>\n      </button>\n      <button on=\"tap:sidebar.toggle\" class=\"ampstart-btn hamburger\" mbr-class=\"{'sticky-but':sticky}\" mbr-if=\"showItems||showButtons\">\n        <span></span>\n        <span></span>\n        <span></span>\n        <span></span>\n    </button>\n        </div>\n    </nav>\n\n  <!-- AMP plug -->\n    <amp-sidebar id=\"sidebar\" layout=\"nodisplay\" side=\"{{sidebarSide}}\">\n        <div class=\"builder-sidebar\" id=\"builder-sidebar\">\n            <button on=\"tap:sidebar.close\" class=\"close-sidebar\">\n                <span></span>\n                <span></span>\n            </button>\n        </div>\n    </amp-sidebar>\n\n</section>",
+          "_cid": "sk22om5Yp9",
+          "_anchor": "menu2-a",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "menu",
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 15px)",
+              "padding-bottom": "(@paddingBottom * 15px)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            ".mbr-section-title": {
+              "color": "#ffffff"
+            },
+            ".mbr-section-subtitle, .mbr-section-btn": {
+              "color": "#ffffff"
+            }
+          },
+          "_name": "header4",
+          "_customHTML": "<section class=\"header4\" group=\"Headers\" plugins=\"amp-main\" mbr-class=\"{'mbr-fullscreen': fullScreen}\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\" condition=\"fullScreen == false\">\n        \n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Text\" name=\"showText\" checked>\n        <input type=\"checkbox\" title=\"Show Buttons\" name=\"showButtons\">\n\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/background2.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#4ea2e3\" selected> \n        </fieldset>\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <h1 class=\"mbr-fonts-style mbr-section-title align-left mbr-black mbr-bold mbr-pt-1 mbr-pb-3\" mbr-theme-style=\"display-1\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">Minecraft Plugins</h1>\n        <h2 class=\"mbr-fonts-style mbr-section-subtitle align-left mbr-black mbr-light mbr-pb-2\" mbr-theme-style=\"display-2\" mbr-if=\"showText\" data-app-selector=\".mbr-section-subtitle, .mbr-section-btn\">A collection of basic Spigot plugins I made</h2>\n        <div class=\"mbr-section-btn align-left\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-4\">\n            <a class=\"btn btn-md btn-black\" href=\"https://mobirise.co\">\n                TRY IT\n            </a>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk27yy6APq",
+          "_anchor": "header4-c",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "background-color": "@bgColor",
+            "img": {
+              "object-fit": "cover"
+            },
+            "@media (min-width: 768px)": {
+              ".image-block when (@flexDirection)": {
+                "padding-left": "2rem"
+              },
+              ".image-block when not (@flexDirection)": {
+                "padding-right": "2rem"
+              }
+            },
+            "@media (max-width: 767px)": {
+              ".image-block": {
+                "padding-bottom": "1rem"
+              }
+            }
+          },
+          "_name": "features10",
+          "_customHTML": "<section class=\"features10\" group=\"Features\" plugins=\"amp-main\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" value=\"2\" step=\"1\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" value=\"2\" step=\"1\">\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Text\" name=\"showText\" checked>\n        <input type=\"checkbox\" title=\"Show Button(s)\" name=\"showButtons\">\n        <input type=\"checkbox\" title=\"Media on Left/Right\" name=\"flexDirection\">\n\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n       \n    <div class=\"container\">\n        <div class=\"mbr-row mbr-jc-c\" mbr-class=\"{'mbr-row-reverse': flexDirection}\">\n            <div class=\"image-block mbr-col-sm-12 mbr-col-md-6 \">\n                <amp-img src=\"@PROJECT_PATH@/assets/images/screen-shot-2020-12-23-at-2.00.46-pm-1044x587.png\" layout=\"responsive\" width=\"522.8892674616695\" height=\"294\" alt=\"Mobirise\" class=\"mobirise-loader\">\n                    <div placeholder class=\"placeholder\"></div>\n                    <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/screen-shot-2020-12-23-at-2.00.46-pm-1044x587.png\" alt=\"Mobirise\" title>\n                </amp-img>\n            </div>\n            <div class=\"text-block mbr-col-sm-12 mbr-col-md-6 mbr-m-auto\">\n                <h3 class=\"mbr-section-title mbr-fonts-style align-left mbr-pt-1 mbr-pb-3\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">\n                    Rypixel</h3>\n                <p class=\"mbr-fonts-style mbr-text align-left mbr-pt-1 mbr-pb-3\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">Rypixel is a plugin that mimics the mechanics of Hypixel bedwars. Rypixel was made for one simple reason. Back in the beggining of 2020, I wanted to play custom bedwars matches with my friends. Unfrourtunatly, this is locked behind the MVP++ rank on Hypixel, which is a subscription. One of my friends jokeingly suggested I create my own plugin, and I did just that.</p>\n                <div class=\"mbr-section-btn align-left\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-4\">\n                    <a class=\"btn btn-sm btn-primary\" href=\"https://mobirise.co\">READ MORE</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk27ZY6Fdb",
+          "_anchor": "features10-d",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            }
+          },
+          "_name": "content15",
+          "_customHTML": "<section class=\"content15 mbr-section\" group=\"Articles\" plugins=\"amp-main\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"9\" step=\"1\" value=\"2\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"9\" step=\"1\" value=\"2\">\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Text\" name=\"showText\" checked>\n        <select title=\"Cards\" name=\"cardsAmount\">\n            <option value=\"1\">1</option>\n            <option value=\"2\">2</option>\n            <option value=\"3\" selected>3</option>\n            <option value=\"4\">4</option>\n        </select>\n\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/background2.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected>\n        </fieldset>\n    <!-- End block parameters -->\n    </mbr-parameters>\n    \n    <div class=\"container mbr-px-5\">\n        <div class=\"mbr-row mbr-jc-c\">\n            <div class=\"card mbr-col-sm-12 mbr-col-md-6\" mbr-class=\"{'mbr-col-lg-4': cardsAmount <= 3,\n                             'mbr-col-lg-3': cardsAmount > 3,\n                             'md-pb': cardsAmount > 2,\n                             'last-child': cardsAmount == 1}\">\n                <h3 class=\"mbr-section-title mbr-fonts-style align-center mbr-pt-1 mbr-pb-2\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">Custom matches</h3>\n                <p class=\"mbr-text mbr-fonts-style align-center mbr-py-1\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text\">Run custom matches on support Hypixel maps without paying for MVP++.</p>             \n            </div>\n            \n            <div class=\"card mbr-col-sm-12 mbr-col-md-6\" mbr-class=\"{'mbr-col-lg-4': cardsAmount <= 3,\n                             'mbr-col-lg-3': cardsAmount > 3,\n                             'md-pb': cardsAmount > 2,\n                             'last-child': cardsAmount == 2}\" mbr-if=\"cardsAmount > 1\">\n                <h3 class=\"mbr-section-title mbr-fonts-style align-center mbr-pt-1 mbr-pb-2\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">\n                    Multi-match support</h3>\n                <p class=\"mbr-text mbr-fonts-style align-center mbr-py-1\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text\">\n                    Rypixel is built with support for up to 5 concurrent matches. Players can create bedwars worlds that anyone can connect to.</p> \n            </div>\n        \n            <div class=\"card mbr-col-sm-12 mbr-col-md-6\" mbr-class=\"{'mbr-col-lg-4': cardsAmount <= 3,\n                             'mbr-col-lg-3': cardsAmount > 3,\n                             'last-child': cardsAmount == 3}\" mbr-if=\"cardsAmount > 2\">\n                <h3 class=\"mbr-section-title mbr-fonts-style align-center mbr-pt-1 mbr-pb-2\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">\n                    1:1 mechanics</h3>\n                <p class=\"mbr-text mbr-fonts-style align-center mbr-py-1\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text\">\n                    The plugin is designed from the ground up to mimic Hypixel as close as possible</p>\n            </div>\n        \n            <div class=\"card mbr-col-sm-12 mbr-col-md-6\" mbr-class=\"{'mbr-col-lg-4': cardsAmount <= 3,\n                             'mbr-col-lg-3': cardsAmount > 3,\n                             'last-child': cardsAmount == 4}\" mbr-if=\"cardsAmount > 3\">\n                <h3 class=\"mbr-section-title mbr-fonts-style align-center mbr-pt-1 mbr-pb-2\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">\n                    Results\n                </h3>\n                <p class=\"mbr-text mbr-fonts-style align-center mbr-py-1\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text\">\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus aperiam\n                </p>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk29bPefJp",
+          "_anchor": "content15-f",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "background-color": "@bgColor"
+          },
+          "_name": "content5",
+          "_customHTML": "<section class=\"mbr-section content5\" plugins=\"amp-main\" group=\"Article\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"4\">\n        <input type=\"color\" title=\"Backgroud Color\" name=\"bgColor\" value=\"#ffffff\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-jc-c\">\n            <div class=\"mbr-section-btn mbr-col-md-12 mbr-col-sm-12 mbr-col-lg-8 align-center\" mbr-buttons mbr-theme-style=\"display-4\" data-toolbar=\"-mbrBtnMove\"><a class=\"btn btn-primary\" href=\"https://mobirise.co\" data-app-placeholder=\"Type Text\">Download</a></div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk2a5rLB8T",
+          "_anchor": "content5-h",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "background-color": "@bgColor",
+            "img": {
+              "object-fit": "cover"
+            },
+            "@media (min-width: 768px)": {
+              ".image-block when (@flexDirection)": {
+                "padding-left": "2rem"
+              },
+              ".image-block when not (@flexDirection)": {
+                "padding-right": "2rem"
+              }
+            },
+            "@media (max-width: 767px)": {
+              ".image-block": {
+                "padding-bottom": "1rem"
+              }
+            }
+          },
+          "_name": "features10",
+          "_customHTML": "<section class=\"features10\" group=\"Features\" plugins=\"amp-main\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n\n        <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" value=\"2\" step=\"1\">\n        <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" value=\"2\" step=\"1\">\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked=\"\">\n        <input type=\"checkbox\" title=\"Show Text\" name=\"showText\" checked=\"\">\n        <input type=\"checkbox\" title=\"Show Button(s)\" name=\"showButtons\">\n        <input type=\"checkbox\" title=\"Media on Left/Right\" name=\"flexDirection\">\n\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n       \n    <div class=\"container\">\n        <div class=\"mbr-row mbr-jc-c\" mbr-class=\"{'mbr-row-reverse': flexDirection}\">\n            <div class=\"image-block mbr-col-sm-12 mbr-col-md-6 \">\n                <amp-img src=\"@PROJECT_PATH@/assets/images/screen-shot-2020-12-23-at-2.14.00-pm-1044x587.png\" layout=\"responsive\" width=\"522.8892674616695\" height=\"294\" alt=\"Mobirise\" class=\"mobirise-loader\">\n                    <div placeholder=\"\" class=\"placeholder\"></div>\n                    <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/screen-shot-2020-12-23-at-2.14.00-pm-1044x587.png\" alt=\"Mobirise\" title=\"\">\n                </amp-img>\n            </div>\n            <div class=\"text-block mbr-col-sm-12 mbr-col-md-6 mbr-m-auto\">\n                <h3 class=\"mbr-section-title mbr-fonts-style align-left mbr-pt-1 mbr-pb-3\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">Item Spinner Survival</h3>\n                <p class=\"mbr-fonts-style mbr-text align-left mbr-pt-1 mbr-pb-3\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">With this plugin, you have limited time to survive in your survival world. You start with one minecraft day, and you are forced to gather specific items to extend the amount of time you have. Gathering an item adds half a day to the timer. This plugin was inspired by one of my friends, who said she enjoyed early game more than later game, and wanted a plugin to prolong struggle.</p>\n                <div class=\"mbr-section-btn align-left\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons=\"\" mbr-theme-style=\"display-4\">\n                    <a class=\"btn btn-sm btn-primary\" href=\"https://mobirise.co\">READ MORE</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk29VK4wL2",
+          "_anchor": "features10-g",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            }
+          },
+          "_name": "content15",
+          "_customHTML": "<section class=\"content15 mbr-section\" group=\"Articles\" plugins=\"amp-main\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"9\" step=\"1\" value=\"2\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"9\" step=\"1\" value=\"2\">\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Text\" name=\"showText\" checked>\n        <select title=\"Cards\" name=\"cardsAmount\">\n            <option value=\"1\">1</option>\n            <option value=\"2\">2</option>\n            <option value=\"3\" selected>3</option>\n            <option value=\"4\">4</option>\n        </select>\n\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/background2.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected>\n        </fieldset>\n    <!-- End block parameters -->\n    </mbr-parameters>\n    \n    <div class=\"container mbr-px-5\">\n        <div class=\"mbr-row mbr-jc-c\">\n            <div class=\"card mbr-col-sm-12 mbr-col-md-6\" mbr-class=\"{'mbr-col-lg-4': cardsAmount <= 3,\n                             'mbr-col-lg-3': cardsAmount > 3,\n                             'md-pb': cardsAmount > 2,\n                             'last-child': cardsAmount == 1}\">\n                <h3 class=\"mbr-section-title mbr-fonts-style align-center mbr-pt-1 mbr-pb-2\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">\n                    Simple commands</h3>\n                <p class=\"mbr-text mbr-fonts-style align-center mbr-py-1\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text\">\n                    /spinner = Plugin decides what item to get<br>/donate = Opens a chest UI that allows you to move items into for added time</p>             \n            </div>\n            \n            <div class=\"card mbr-col-sm-12 mbr-col-md-6\" mbr-class=\"{'mbr-col-lg-4': cardsAmount <= 3,\n                             'mbr-col-lg-3': cardsAmount > 3,\n                             'md-pb': cardsAmount > 2,\n                             'last-child': cardsAmount == 2}\" mbr-if=\"cardsAmount > 1\">\n                <h3 class=\"mbr-section-title mbr-fonts-style align-center mbr-pt-1 mbr-pb-2\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">Increased challenge</h3>\n                <p class=\"mbr-text mbr-fonts-style align-center mbr-py-1\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text\">\n                    The plugin keeps early game lasting longer, due to you having to sacrifice precious resources to continue playing</p> \n            </div>\n        \n            <div class=\"card mbr-col-sm-12 mbr-col-md-6\" mbr-class=\"{'mbr-col-lg-4': cardsAmount <= 3,\n                             'mbr-col-lg-3': cardsAmount > 3,\n                             'last-child': cardsAmount == 3}\" mbr-if=\"cardsAmount > 2\">\n                <h3 class=\"mbr-section-title mbr-fonts-style align-center mbr-pt-1 mbr-pb-2\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">Fair (enough)</h3>\n                <p class=\"mbr-text mbr-fonts-style align-center mbr-py-1\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text\">\n                    The plugin will ask you to get harder items as the game continues, meaning you won't be asked to get blaze rods on your first night</p>\n            </div>\n        \n            <div class=\"card mbr-col-sm-12 mbr-col-md-6\" mbr-class=\"{'mbr-col-lg-4': cardsAmount <= 3,\n                             'mbr-col-lg-3': cardsAmount > 3,\n                             'last-child': cardsAmount == 4}\" mbr-if=\"cardsAmount > 3\">\n                <h3 class=\"mbr-section-title mbr-fonts-style align-center mbr-pt-1 mbr-pb-2\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">\n                    Results\n                </h3>\n                <p class=\"mbr-text mbr-fonts-style align-center mbr-py-1\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text\">\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus aperiam\n                </p>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk2c2fBClK",
+          "_anchor": "content15-i",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "background-color": "@bgColor"
+          },
+          "_name": "content5",
+          "_customHTML": "<section class=\"mbr-section content5\" plugins=\"amp-main\" group=\"Article\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"4\">\n        <input type=\"color\" title=\"Backgroud Color\" name=\"bgColor\" value=\"#ffffff\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-jc-c\">\n            <div class=\"mbr-section-btn mbr-col-md-12 mbr-col-sm-12 mbr-col-lg-8 align-center\" mbr-buttons mbr-theme-style=\"display-4\" data-toolbar=\"-mbrBtnMove\"><a class=\"btn btn-primary\" href=\"https://mobirise.co\" data-app-placeholder=\"Type Text\">Download</a></div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk2cKu3j6S",
+          "_anchor": "content5-j",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            }
+          },
+          "_name": "footer1",
+          "_customHTML": "<section class=\"footer1\" group=\"Footers\" plugins=\"amp-main\" global once=\"footer\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/background6.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#232323\" selected>\n        </fieldset>\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"align-center mbr-white mbr-p-1\">\n            <p class=\"mbr-text mbr-fonts-style \" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-text\" data-app-placeholder=\"Type Text\">Created by Ryan Pineda. ryanpineda@rypixel.net</p>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk236In7Nt",
+          "_anchor": "footer1-b",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footer",
+          "_params": {}
+        }
+      ]
+    },
+    "page2.html": {
+      "settings": {
+        "title": "Downloads",
+        "order": 2
+      },
+      "components": [
+        {
+          "alias": false,
+          "_styles": {
+            "min-height": "80px",
+            ".brand-name": {
+              "color": "@primaryColor",
+              "margin": "0"
+            },
+            ".hamburger span, .close-sidebar span": {
+              "background": "@hamburgerColor"
+            },
+            ".nav-dropdown .dropdown-menu .dropdown-item": {
+              "font-weight": "400",
+              "width": "100%",
+              "text-align": "inherit"
+            },
+            ".navbar": {
+              "min-height": "80px",
+              "background": "@menuBgColor",
+              ".navbar-collapse": {
+                "& when not (@showItems)": {
+                  "display": "none !important"
+                }
+              },
+              "@media (max-width: 991px)": {
+                ".navbar-collapse": {
+                  "& when (@sidebarSide = 'left')": {
+                    "right": "auto",
+                    "left": "0"
+                  }
+                },
+                ".navbar-brand": {
+                  "flex-shrink": "initial"
+                }
+              }
+            },
+            ".navbar-brand": {
+              "flex-shrink": "0",
+              "margin-right": "0",
+              "padding": "0"
+            },
+            "@media (min-width: 992px)": {
+              ".navbar-expand-lg .navbar-nav .nav-link": {
+                "padding": "0"
+              },
+              ".navbar-nav .nav-link": {
+                "margin": ".667em 1em !important"
+              }
+            },
+            ".navbar-dropdown": {
+              "padding": ".5rem 0"
+            },
+            ".builder-sidebar, .collapse, .navbar.navbar-expand-lg .dropdown .dropdown-menu": {
+              "background-color": "@menuBgColor"
+            },
+            "@media (max-width: 991px)": {
+              ".navbar-nav a": {
+                "padding": "0.5rem 0 !important",
+                "margin": "0 0 10px !important"
+              }
+            },
+            ".close-sidebar:focus": {
+              "outline": "2px auto @primaryColor"
+            },
+            "amp-img": {
+              "height": "~\"@{logoHeight}px\"",
+              "width": "~\"@{logoWidth}px\"",
+              "img": {
+                "object-fit": "contain"
+              }
+            }
+          },
+          "_name": "menu2",
+          "_customHTML": "<section class=\"menu horizontal-menu\" group=\"Menu\" plugins=\"amp-main,amp-sidebar\" global once=\"menu\" always-top position-absolute>\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"checkbox\" title=\"Show Logo\" name=\"showLogo\" checked>\n        <input type=\"range\" title=\"Logo Height\" inline name=\"logoHeight\" min=\"35\" max=\"120\" value=\"45\" step=\"1\" condition=\"showLogo\">\n        <input type=\"range\" title=\"Logo Width\" inline name=\"logoWidth\" min=\"35\" max=\"120\" value=\"45\" step=\"1\" condition=\"showLogo\">\n        <input type=\"checkbox\" title=\"Show Brand Name\" name=\"showBrand\" checked>\n        <input type=\"checkbox\" title=\"Show Menu Items\" name=\"showItems\" checked>\n        <input type=\"checkbox\" title=\"Show Button(s)\" name=\"showButtons\" checked>\n        <input type=\"checkbox\" title=\"Sticky\" name=\"sticky\" checked>\n        <select title=\"Sidebar Side\" name=\"sidebarSide\">\n            <option value=\"left\">Left</option>\n            <option value=\"right\" selected>Right</option>\n        </select>\n        <input type=\"color\" title=\"Hamburger Color\" name=\"hamburgerColor\" value=\"#4ea2e3\">\n        <input type=\"color\" title=\"Background Color\" name=\"menuBgColor\" value=\"#ffffff\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    \n\n    <nav class=\"navbar navbar-dropdown navbar-expand-lg\" mbr-class=\"{'navbar-fixed-top':sticky}\">\n       <div class=\"menu-container container-fluid\" mbr-class=\"{'mbr-jc-e': !showBrand && !showLogo}\"> \n      <div class=\"navbar-brand\" mbr-if=\"showLogo || showBrand\">\n          <span mbr-if=\"showLogo\" class=\"navbar-logo\">\n              <amp-img src=\"@THEME_PATH@/components/_images/logo1.png\" layout=\"responsive\" width=\"45.71808510638298\" height=\"45\" alt=\"Mobirise\" class=\"mobirise-loader\">\n                  <div placeholder class=\"placeholder\"></div>\n                  <img class=\"mbr-temp\" src=\"@THEME_PATH@/components/_images/logo1.png\" alt=\"Mobirise\">\n              </amp-img>\n          </span>\n          <p mbr-text mbr-theme-style=\"display-5\" mbr-if=\"showBrand\" class=\"brand-name mbr-fonts-style mbr-bold\" data-app-selector=\".brand-name\">Rypixel Studios</p>\n      </div>\n      <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n            <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\" mbr-if=\"showItems||showButtons\">\n                <div class=\"hamburger\">\n                    <span></span>\n                    <span></span>\n                    <span></span>\n                    <span></span>\n                </div>\n            </button>\n            <ul mbr-menu class=\"navbar-nav nav-dropdown\" mbr-theme-style=\"display-7\" mbr-if=\"showItems\" mbr-class=\"{'navbar-nav-top-padding': isPublish && !showBrand && !showLogo}\"><li class=\"nav-item\">\n                    <a class=\"nav-link link text-primary\" href=\"page1.html\" data-app-selector=\".nav-link,.dropdown-item\" data-app-placeholder=\"Type Text\">Minecraft Plugins</a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link link text-primary\" href=\"page3.html\" data-app-selector=\".nav-link,.dropdown-item\" data-app-placeholder=\"Type Text\">Infinite Jump</a>\n                </li></ul>\n            \n            <div mbr-if=\"showButtons\" mbr-buttons mbr-theme-style=\"display-7\" class=\"navbar-buttons mbr-section-btn align-center\"><a class=\"btn btn-sm btn-primary\" href=\"page2.html\" data-app-placeholder=\"Type Text\">\n                  Downloads</a></div>\n      </div>\n      <button class=\"navbar-toggler hide\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\" mbr-if=\"showItems||showButtons\">\n          <div class=\"hamburger\">\n              <span></span>\n              <span></span>\n              <span></span>\n              <span></span>\n          </div>\n      </button>\n      <button on=\"tap:sidebar.toggle\" class=\"ampstart-btn hamburger\" mbr-class=\"{'sticky-but':sticky}\" mbr-if=\"showItems||showButtons\">\n        <span></span>\n        <span></span>\n        <span></span>\n        <span></span>\n    </button>\n        </div>\n    </nav>\n\n  <!-- AMP plug -->\n    <amp-sidebar id=\"sidebar\" layout=\"nodisplay\" side=\"{{sidebarSide}}\">\n        <div class=\"builder-sidebar\" id=\"builder-sidebar\">\n            <button on=\"tap:sidebar.close\" class=\"close-sidebar\">\n                <span></span>\n                <span></span>\n            </button>\n        </div>\n    </amp-sidebar>\n\n</section>",
+          "_cid": "sk22om5Yp9",
+          "_anchor": "menu2-k",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "menu",
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 15px)",
+              "padding-bottom": "(@paddingBottom * 15px)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            ".mbr-section-title": {
+              "color": "#ffffff"
+            }
+          },
+          "_name": "header4",
+          "_customHTML": "<section class=\"header4\" group=\"Headers\" plugins=\"amp-main\" mbr-class=\"{'mbr-fullscreen': fullScreen}\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\" condition=\"fullScreen == false\">\n        \n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Text\" name=\"showText\">\n        <input type=\"checkbox\" title=\"Show Buttons\" name=\"showButtons\">\n\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/background2.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#4ea2e3\" selected> \n        </fieldset>\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <h1 class=\"mbr-fonts-style mbr-section-title align-left mbr-black mbr-bold mbr-pt-1 mbr-pb-3\" mbr-theme-style=\"display-1\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">\n            Downloads</h1>\n        <h2 class=\"mbr-fonts-style mbr-section-subtitle align-left mbr-black mbr-light mbr-pb-2\" mbr-theme-style=\"display-2\" mbr-if=\"showText\" data-app-selector=\".mbr-section-subtitle, .mbr-section-btn\">\n            Building the future web, together\n        </h2>\n        <div class=\"mbr-section-btn align-left\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-4\">\n            <a class=\"btn btn-md btn-black\" href=\"https://mobirise.co\">\n                TRY IT\n            </a>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk2dd2IX3H",
+          "_anchor": "header4-m",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            }
+          },
+          "_name": "content1",
+          "_customHTML": "<section class=\"mbr-section content1\" group=\"Article\" plugins=\"amp-main\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubtitle\">\n        <input type=\"checkbox\" title=\"Show Buttons\" name=\"showButtons\">\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/background2.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected>\n        </fieldset>\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n     <div class=\"container\">\n        <div class=\"mbr-row mbr-jc-c\">\n            <div class=\"mbr-col-sm-12 mbr-col-md-8\">\n                <h2 mbr-if=\"showTitle\" class=\"mbr-title align-center mbr-fonts-style mbr-bold mbr-pb-2\" mbr-theme-style=\"display-2\" data-app-selector=\".mbr-title\">\n                    Minecraft Plugins</h2>\n                <h3 mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\" class=\"mbr-section-subtitle align-center mbr-light mbr-fonts-style\" mbr-theme-style=\"display-5 mbr-pt-1 mbr-pb-3\">\n                    <i>Shape your future web project with sharp design and refine coded functions.</i>\n                </h3>\n                <div class=\"mbr-section-btn align-center mbr-pt-3\" mbr-if=\"showButtons\" mbr-buttons mbr-theme-style=\"display-4\" data-toolbar=\"-mbrBtnAdd,-mbrBtnMove\">\n                    <a class=\"btn btn-primary\" href=\"https://mobirise.co\">LEARN MORE</a>\n                    <a class=\"btn btn-black-outline\" href=\"https://mobirise.co\">LIVE DEMO</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk2dwve9bh",
+          "_anchor": "content1-p",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@showTitle), (@showSubtitle)": {
+              "@media (max-width: 767px)": {
+                ".btn-container when (@showButton)": {
+                  "padding-top": "1rem"
+                }
+              }
+            }
+          },
+          "_name": "info2",
+          "_customHTML": "<section class=\"info2\" group=\"Testimonials & Info\" plugins=\"amp-main\">\n\n    <mbr-parameters>\n    <!--Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"4\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"4\">\n\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubtitle\" checked>\n        <input type=\"checkbox\" title=\"Show Button\" name=\"showButton\" checked>\n        <input type=\"checkbox\" title=\"Text on Left/Right\" name=\"flexDirection\" condition=\"(showTitle || showSubtitle) && showButton\" checked>\n\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/background3.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected>\n        </fieldset>\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-jc-c\" mbr-class=\"{'mbr-row-reverse': flexDirection}\">\n            <div class=\"mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-8\" mbr-if=\"showTitle || showSubtitle\">\n                <h2 class=\"mbr-section-title align-right mbr-fonts-style mbr-bold\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">Rypixel</h2>\n                <h3 class=\"mbr-section-subtitle align-right mbr-fonts-style mbr-light mbr-py-1\" mbr-theme-style=\"display-7\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\">\n                    The Hypixel bedwars clone you didn't realize you wanted, and you probably still don't want. Created for Spigot 1.8.9. (Installation instructions coming soon)</h3>\n            </div>\n            <div class=\"btn-container mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-4 align-center mbr-flex\" mbr-if=\"showButton\">\n                <div class=\"mbr-section-btn mbr-m-auto\" mbr-buttons mbr-theme-style=\"display-4\" data-toolbar=\"-mbrBtnMove\"><a class=\"btn btn-black-outline\" href=\"index.html\" data-app-placeholder=\"Type Text\">Download (soon)</a></div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk2dTQIDOR",
+          "_anchor": "info2-r",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@showTitle), (@showSubtitle)": {
+              "@media (max-width: 767px)": {
+                ".btn-container when (@showButton)": {
+                  "padding-top": "1rem"
+                }
+              }
+            }
+          },
+          "_name": "info2",
+          "_customHTML": "<section class=\"info2\" group=\"Testimonials & Info\" plugins=\"amp-main\">\n\n    <mbr-parameters>\n    <!--Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"4\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"4\">\n\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubtitle\" checked>\n        <input type=\"checkbox\" title=\"Show Button\" name=\"showButton\" checked>\n        <input type=\"checkbox\" title=\"Text on Left/Right\" name=\"flexDirection\" condition=\"(showTitle || showSubtitle) && showButton\" checked>\n\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/background3.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected>\n        </fieldset>\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-jc-c\" mbr-class=\"{'mbr-row-reverse': flexDirection}\">\n            <div class=\"mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-8\" mbr-if=\"showTitle || showSubtitle\">\n                <h2 class=\"mbr-section-title align-right mbr-fonts-style mbr-bold\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">Item Spinner Survival</h2>\n                <h3 class=\"mbr-section-subtitle align-right mbr-fonts-style mbr-light mbr-py-1\" mbr-theme-style=\"display-7\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\">A simple Minecraft survival challenge to prolong early game, and add stress to the entire experience.</h3>\n            </div>\n            <div class=\"btn-container mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-4 align-center mbr-flex\" mbr-if=\"showButton\">\n                <div class=\"mbr-section-btn mbr-m-auto\" mbr-buttons mbr-theme-style=\"display-4\" data-toolbar=\"-mbrBtnMove\"><a class=\"btn btn-black-outline\" href=\"index.html\" data-app-placeholder=\"Type Text\">Download (soon)</a></div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk2dUbZk5i",
+          "_anchor": "info2-s",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            }
+          },
+          "_name": "content1",
+          "_customHTML": "<section class=\"mbr-section content1\" group=\"Article\" plugins=\"amp-main\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubtitle\">\n        <input type=\"checkbox\" title=\"Show Buttons\" name=\"showButtons\">\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/background2.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected>\n        </fieldset>\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n     <div class=\"container\">\n        <div class=\"mbr-row mbr-jc-c\">\n            <div class=\"mbr-col-sm-12 mbr-col-md-8\">\n                <h2 mbr-if=\"showTitle\" class=\"mbr-title align-center mbr-fonts-style mbr-bold mbr-pb-2\" mbr-theme-style=\"display-2\" data-app-selector=\".mbr-title\">Games</h2>\n                <h3 mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\" class=\"mbr-section-subtitle align-center mbr-light mbr-fonts-style\" mbr-theme-style=\"display-5 mbr-pt-1 mbr-pb-3\">\n                    <i>Shape your future web project with sharp design and refine coded functions.</i>\n                </h3>\n                <div class=\"mbr-section-btn align-center mbr-pt-3\" mbr-if=\"showButtons\" mbr-buttons mbr-theme-style=\"display-4\" data-toolbar=\"-mbrBtnAdd,-mbrBtnMove\">\n                    <a class=\"btn btn-primary\" href=\"https://mobirise.co\">LEARN MORE</a>\n                    <a class=\"btn btn-black-outline\" href=\"https://mobirise.co\">LIVE DEMO</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk2dwV8pYK",
+          "_anchor": "content1-q",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@showTitle), (@showSubtitle)": {
+              "@media (max-width: 767px)": {
+                ".btn-container when (@showButton)": {
+                  "padding-top": "1rem"
+                }
+              }
+            }
+          },
+          "_name": "info2",
+          "_customHTML": "<section class=\"info2\" group=\"Testimonials & Info\" plugins=\"amp-main\">\n\n    <mbr-parameters>\n    <!--Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"4\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"4\">\n\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubtitle\" checked>\n        <input type=\"checkbox\" title=\"Show Button\" name=\"showButton\" checked>\n        <input type=\"checkbox\" title=\"Text on Left/Right\" name=\"flexDirection\" condition=\"(showTitle || showSubtitle) && showButton\" checked>\n\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/background3.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected>\n        </fieldset>\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-jc-c\" mbr-class=\"{'mbr-row-reverse': flexDirection}\">\n            <div class=\"mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-8\" mbr-if=\"showTitle || showSubtitle\">\n                <h2 class=\"mbr-section-title align-right mbr-fonts-style mbr-bold\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">\n                    Infinite Jump</h2>\n                <h3 class=\"mbr-section-subtitle align-right mbr-fonts-style mbr-light mbr-py-1\" mbr-theme-style=\"display-7\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\">\n                    My first mobile game created in unity. A simple arcade style ad free game in which you infinately jump upwards in an attempt to avoid rising lava</h3>\n            </div>\n            <div class=\"btn-container mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-4 align-center mbr-flex\" mbr-if=\"showButton\">\n                <div class=\"mbr-section-btn mbr-m-auto\" mbr-buttons mbr-theme-style=\"display-4\" data-toolbar=\"-mbrBtnMove\"><a class=\"btn btn-black-outline\" href=\"index.html\" data-app-placeholder=\"Type Text\">Android (soon)</a> <a class=\"btn btn-black-outline\" href=\"index.html\" data-app-placeholder=\"Type Text\">iOS (soon)</a> <a class=\"btn btn-black-outline\" href=\"index.html\" data-app-placeholder=\"Type Text\">PC (soon)</a> <a class=\"btn btn-black-outline\" href=\"index.html\" data-app-placeholder=\"Type Text\">macOS (soon)</a></div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk2dUWrGud",
+          "_anchor": "info2-t",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            }
+          },
+          "_name": "footer1",
+          "_customHTML": "<section class=\"footer1\" group=\"Footers\" plugins=\"amp-main\" global once=\"footer\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/background6.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#232323\" selected>\n        </fieldset>\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"align-center mbr-white mbr-p-1\">\n            <p class=\"mbr-text mbr-fonts-style \" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-text\" data-app-placeholder=\"Type Text\">Created by Ryan Pineda. ryanpineda@rypixel.net</p>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk236In7Nt",
+          "_anchor": "footer1-l",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footer",
+          "_params": {}
+        }
+      ]
+    },
+    "page3.html": {
+      "settings": {
+        "title": "Infinite Jump",
+        "order": 1
+      },
+      "components": [
+        {
+          "alias": false,
+          "_styles": {
+            "min-height": "80px",
+            ".brand-name": {
+              "color": "@primaryColor",
+              "margin": "0"
+            },
+            ".hamburger span, .close-sidebar span": {
+              "background": "@hamburgerColor"
+            },
+            ".nav-dropdown .dropdown-menu .dropdown-item": {
+              "font-weight": "400",
+              "width": "100%",
+              "text-align": "inherit"
+            },
+            ".navbar": {
+              "min-height": "80px",
+              "background": "@menuBgColor",
+              ".navbar-collapse": {
+                "& when not (@showItems)": {
+                  "display": "none !important"
+                }
+              },
+              "@media (max-width: 991px)": {
+                ".navbar-collapse": {
+                  "& when (@sidebarSide = 'left')": {
+                    "right": "auto",
+                    "left": "0"
+                  }
+                },
+                ".navbar-brand": {
+                  "flex-shrink": "initial"
+                }
+              }
+            },
+            ".navbar-brand": {
+              "flex-shrink": "0",
+              "margin-right": "0",
+              "padding": "0"
+            },
+            "@media (min-width: 992px)": {
+              ".navbar-expand-lg .navbar-nav .nav-link": {
+                "padding": "0"
+              },
+              ".navbar-nav .nav-link": {
+                "margin": ".667em 1em !important"
+              }
+            },
+            ".navbar-dropdown": {
+              "padding": ".5rem 0"
+            },
+            ".builder-sidebar, .collapse, .navbar.navbar-expand-lg .dropdown .dropdown-menu": {
+              "background-color": "@menuBgColor"
+            },
+            "@media (max-width: 991px)": {
+              ".navbar-nav a": {
+                "padding": "0.5rem 0 !important",
+                "margin": "0 0 10px !important"
+              }
+            },
+            ".close-sidebar:focus": {
+              "outline": "2px auto @primaryColor"
+            },
+            "amp-img": {
+              "height": "~\"@{logoHeight}px\"",
+              "width": "~\"@{logoWidth}px\"",
+              "img": {
+                "object-fit": "contain"
+              }
+            }
+          },
+          "_name": "menu2",
+          "_customHTML": "<section class=\"menu horizontal-menu\" group=\"Menu\" plugins=\"amp-main,amp-sidebar\" global once=\"menu\" always-top position-absolute>\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"checkbox\" title=\"Show Logo\" name=\"showLogo\" checked>\n        <input type=\"range\" title=\"Logo Height\" inline name=\"logoHeight\" min=\"35\" max=\"120\" value=\"45\" step=\"1\" condition=\"showLogo\">\n        <input type=\"range\" title=\"Logo Width\" inline name=\"logoWidth\" min=\"35\" max=\"120\" value=\"45\" step=\"1\" condition=\"showLogo\">\n        <input type=\"checkbox\" title=\"Show Brand Name\" name=\"showBrand\" checked>\n        <input type=\"checkbox\" title=\"Show Menu Items\" name=\"showItems\" checked>\n        <input type=\"checkbox\" title=\"Show Button(s)\" name=\"showButtons\" checked>\n        <input type=\"checkbox\" title=\"Sticky\" name=\"sticky\" checked>\n        <select title=\"Sidebar Side\" name=\"sidebarSide\">\n            <option value=\"left\">Left</option>\n            <option value=\"right\" selected>Right</option>\n        </select>\n        <input type=\"color\" title=\"Hamburger Color\" name=\"hamburgerColor\" value=\"#4ea2e3\">\n        <input type=\"color\" title=\"Background Color\" name=\"menuBgColor\" value=\"#ffffff\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    \n\n    <nav class=\"navbar navbar-dropdown navbar-expand-lg\" mbr-class=\"{'navbar-fixed-top':sticky}\">\n       <div class=\"menu-container container-fluid\" mbr-class=\"{'mbr-jc-e': !showBrand && !showLogo}\"> \n      <div class=\"navbar-brand\" mbr-if=\"showLogo || showBrand\">\n          <span mbr-if=\"showLogo\" class=\"navbar-logo\">\n              <amp-img src=\"@THEME_PATH@/components/_images/logo1.png\" layout=\"responsive\" width=\"45.71808510638298\" height=\"45\" alt=\"Mobirise\" class=\"mobirise-loader\">\n                  <div placeholder class=\"placeholder\"></div>\n                  <img class=\"mbr-temp\" src=\"@THEME_PATH@/components/_images/logo1.png\" alt=\"Mobirise\">\n              </amp-img>\n          </span>\n          <p mbr-text mbr-theme-style=\"display-5\" mbr-if=\"showBrand\" class=\"brand-name mbr-fonts-style mbr-bold\" data-app-selector=\".brand-name\">Rypixel Studios</p>\n      </div>\n      <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n            <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\" mbr-if=\"showItems||showButtons\">\n                <div class=\"hamburger\">\n                    <span></span>\n                    <span></span>\n                    <span></span>\n                    <span></span>\n                </div>\n            </button>\n            <ul mbr-menu class=\"navbar-nav nav-dropdown\" mbr-theme-style=\"display-7\" mbr-if=\"showItems\" mbr-class=\"{'navbar-nav-top-padding': isPublish && !showBrand && !showLogo}\"><li class=\"nav-item\">\n                    <a class=\"nav-link link text-primary\" href=\"page1.html\" data-app-selector=\".nav-link,.dropdown-item\" data-app-placeholder=\"Type Text\">Minecraft Plugins</a>\n                </li>\n                <li class=\"nav-item\">\n                    <a class=\"nav-link link text-primary\" href=\"page3.html\" data-app-selector=\".nav-link,.dropdown-item\" data-app-placeholder=\"Type Text\">Infinite Jump</a>\n                </li></ul>\n            \n            <div mbr-if=\"showButtons\" mbr-buttons mbr-theme-style=\"display-7\" class=\"navbar-buttons mbr-section-btn align-center\"><a class=\"btn btn-sm btn-primary\" href=\"page2.html\" data-app-placeholder=\"Type Text\">\n                  Downloads</a></div>\n      </div>\n      <button class=\"navbar-toggler hide\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\" mbr-if=\"showItems||showButtons\">\n          <div class=\"hamburger\">\n              <span></span>\n              <span></span>\n              <span></span>\n              <span></span>\n          </div>\n      </button>\n      <button on=\"tap:sidebar.toggle\" class=\"ampstart-btn hamburger\" mbr-class=\"{'sticky-but':sticky}\" mbr-if=\"showItems||showButtons\">\n        <span></span>\n        <span></span>\n        <span></span>\n        <span></span>\n    </button>\n        </div>\n    </nav>\n\n  <!-- AMP plug -->\n    <amp-sidebar id=\"sidebar\" layout=\"nodisplay\" side=\"{{sidebarSide}}\">\n        <div class=\"builder-sidebar\" id=\"builder-sidebar\">\n            <button on=\"tap:sidebar.close\" class=\"close-sidebar\">\n                <span></span>\n                <span></span>\n            </button>\n        </div>\n    </amp-sidebar>\n\n</section>",
+          "_cid": "sk22om5Yp9",
+          "_anchor": "menu2-v",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "menu",
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 15px)",
+              "padding-bottom": "(@paddingBottom * 15px)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            ".mbr-section-title": {
+              "color": "#ffffff"
+            }
+          },
+          "_name": "header4",
+          "_customHTML": "<section class=\"header4\" group=\"Headers\" plugins=\"amp-main\" mbr-class=\"{'mbr-fullscreen': fullScreen}\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        \n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Text\" name=\"showText\">\n        <input type=\"checkbox\" title=\"Show Buttons\" name=\"showButtons\">\n\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/background2.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#4ea2e3\" selected> \n        </fieldset>\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <h1 class=\"mbr-fonts-style mbr-section-title align-left mbr-black mbr-bold mbr-pt-1 mbr-pb-3\" mbr-theme-style=\"display-1\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">\n            Infinite Jump</h1>\n        <h2 class=\"mbr-fonts-style mbr-section-subtitle align-left mbr-black mbr-light mbr-pb-2\" mbr-theme-style=\"display-2\" mbr-if=\"showText\" data-app-selector=\".mbr-section-subtitle, .mbr-section-btn\">\n            Building the future web, together\n        </h2>\n        <div class=\"mbr-section-btn align-left\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-4\">\n            <a class=\"btn btn-md btn-black\" href=\"https://mobirise.co\">\n                TRY IT\n            </a>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk2fJyIEP7",
+          "_anchor": "header4-x",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "background-color": "@bgColor",
+            "img": {
+              "object-fit": "cover"
+            },
+            "@media (min-width: 768px)": {
+              ".image-block when (@flexDirection)": {
+                "padding-left": "2rem"
+              },
+              ".image-block when not (@flexDirection)": {
+                "padding-right": "2rem"
+              }
+            },
+            "@media (max-width: 767px)": {
+              ".image-block": {
+                "padding-bottom": "1rem"
+              }
+            }
+          },
+          "_name": "features10",
+          "_customHTML": "<section class=\"features10\" group=\"Features\" plugins=\"amp-main\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" value=\"2\" step=\"1\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" value=\"2\" step=\"1\">\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Text\" name=\"showText\" checked>\n        <input type=\"checkbox\" title=\"Show Button(s)\" name=\"showButtons\">\n        <input type=\"checkbox\" title=\"Media on Left/Right\" name=\"flexDirection\">\n\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n       \n    <div class=\"container\">\n        <div class=\"mbr-row mbr-jc-c\" mbr-class=\"{'mbr-row-reverse': flexDirection}\">\n            <div class=\"image-block mbr-col-sm-12 mbr-col-md-6 \">\n                <amp-img src=\"@PROJECT_PATH@/assets/images/screen-shot-2020-12-23-at-2.39.12-pm-1044x587.png\" layout=\"responsive\" width=\"522.8892674616695\" height=\"294\" alt=\"Mobirise\" class=\"mobirise-loader\">\n                    <div placeholder class=\"placeholder\"></div>\n                    <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/screen-shot-2020-12-23-at-2.39.12-pm-1044x587.png\" alt=\"Mobirise\" title>\n                </amp-img>\n            </div>\n            <div class=\"text-block mbr-col-sm-12 mbr-col-md-6 mbr-m-auto\">\n                <h3 class=\"mbr-section-title mbr-fonts-style align-left mbr-pt-1 mbr-pb-3\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">\n                    What is Infinite Jump?</h3>\n                <p class=\"mbr-fonts-style mbr-text align-left mbr-pt-1 mbr-pb-3\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">\n                   Infinite Jump is a simple arcade genre game, in which you have to keep jumping to avoid constantly rising lava. The game gets progressively harder as you rise to the top. The higher you go, the more special unlocks you recieve</p>\n                <div class=\"mbr-section-btn align-left\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-4\"><a class=\"btn btn-sm btn-primary\" href=\"https://mobirise.co\" data-app-placeholder=\"Type Text\">READ MORE</a></div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk2giDwoi2",
+          "_anchor": "features10-y",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "background-color": "@bgColor",
+            "img": {
+              "object-fit": "cover"
+            },
+            "@media (min-width: 768px)": {
+              ".image-block when (@flexDirection)": {
+                "padding-left": "2rem"
+              },
+              ".image-block when not (@flexDirection)": {
+                "padding-right": "2rem"
+              }
+            },
+            "@media (max-width: 767px)": {
+              ".image-block": {
+                "padding-bottom": "1rem"
+              }
+            }
+          },
+          "_name": "features10",
+          "_customHTML": "<section class=\"features10\" group=\"Features\" plugins=\"amp-main\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n\n        <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" value=\"2\" step=\"1\">\n        <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" value=\"2\" step=\"1\">\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked=\"\">\n        <input type=\"checkbox\" title=\"Show Text\" name=\"showText\" checked=\"\">\n        <input type=\"checkbox\" title=\"Show Button(s)\" name=\"showButtons\">\n        <input type=\"checkbox\" title=\"Media on Left/Right\" name=\"flexDirection\" checked=\"\">\n\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n       \n    <div class=\"container\">\n        <div class=\"mbr-row mbr-jc-c\" mbr-class=\"{'mbr-row-reverse': flexDirection}\">\n            <div class=\"image-block mbr-col-sm-12 mbr-col-md-6 \">\n                <amp-img src=\"@PROJECT_PATH@/assets/images/screen-shot-2020-12-23-at-2.39.46-pm-1044x587.png\" layout=\"responsive\" width=\"533.5604770017036\" height=\"300\" alt=\"Mobirise\" class=\"mobirise-loader\">\n                    <div placeholder=\"\" class=\"placeholder\"></div>\n                    <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/screen-shot-2020-12-23-at-2.39.46-pm-1044x587.png\" alt=\"Mobirise\" title=\"\">\n                </amp-img>\n            </div>\n            <div class=\"text-block mbr-col-sm-12 mbr-col-md-6 mbr-m-auto\">\n                <h3 class=\"mbr-section-title mbr-fonts-style align-left mbr-pt-1 mbr-pb-3\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">\n                    Why does this even exist?</h3>\n                <p class=\"mbr-fonts-style mbr-text align-left mbr-pt-1 mbr-pb-3\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">There are three reasons I made this. The first is because while I was talking with my friends on discord calls I needed something to do, and a simple arcade game would be exactly what I needed. The second was to further my understanding of unity. The final reason, is because mobile app stores are litered with games the present non-stop ads and IAPs, and I wanted to make something that went against this standard.</p>\n                <div class=\"mbr-section-btn align-left\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons=\"\" mbr-theme-style=\"display-4\">\n                    <a class=\"btn btn-sm btn-primary\" href=\"https://mobirise.co\">READ MORE</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk2gnu7xBr",
+          "_anchor": "features10-10",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "background-color": "@bgColor",
+            "img": {
+              "object-fit": "cover"
+            },
+            "@media (min-width: 768px)": {
+              ".image-block when (@flexDirection)": {
+                "padding-left": "2rem"
+              },
+              ".image-block when not (@flexDirection)": {
+                "padding-right": "2rem"
+              }
+            },
+            "@media (max-width: 767px)": {
+              ".image-block": {
+                "padding-bottom": "1rem"
+              }
+            }
+          },
+          "_name": "features10",
+          "_customHTML": "<section class=\"features10\" group=\"Features\" plugins=\"amp-main\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" value=\"2\" step=\"1\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" value=\"2\" step=\"1\">\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Text\" name=\"showText\" checked>\n        <input type=\"checkbox\" title=\"Show Button(s)\" name=\"showButtons\">\n        <input type=\"checkbox\" title=\"Media on Left/Right\" name=\"flexDirection\">\n\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n       \n    <div class=\"container\">\n        <div class=\"mbr-row mbr-jc-c\" mbr-class=\"{'mbr-row-reverse': flexDirection}\">\n            <div class=\"image-block mbr-col-sm-12 mbr-col-md-6 \">\n                <amp-img src=\"@PROJECT_PATH@/assets/images/screen-shot-2020-12-23-at-2.40.10-pm-1044x587.png\" layout=\"responsive\" width=\"522.8892674616695\" height=\"294\" alt=\"Mobirise\" class=\"mobirise-loader\">\n                    <div placeholder class=\"placeholder\"></div>\n                    <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/screen-shot-2020-12-23-at-2.40.10-pm-1044x587.png\" alt=\"Mobirise\" title>\n                </amp-img>\n            </div>\n            <div class=\"text-block mbr-col-sm-12 mbr-col-md-6 mbr-m-auto\">\n                <h3 class=\"mbr-section-title mbr-fonts-style align-left mbr-pt-1 mbr-pb-3\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">\n                    How do you play?</h3>\n                <p class=\"mbr-fonts-style mbr-text align-left mbr-pt-1 mbr-pb-3\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">\n                   It's extremly simple. On mobile, swipe in the direction you would like to move, and the cube will follow. Note that a bigger swipe does not equal a higher jump, but it will equal more horizontal distance. On PC, macOS, and on mobile with a keyboard, simply used WASD and the space bar to move the cube</p>\n                <div class=\"mbr-section-btn align-left\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-4\"><a class=\"btn btn-sm btn-primary\" href=\"https://mobirise.co\" data-app-placeholder=\"Type Text\">READ MORE</a></div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk2h5ikeGG",
+          "_anchor": "features10-11",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "background-color": "@bgColor",
+            "img": {
+              "object-fit": "cover"
+            },
+            "@media (min-width: 768px)": {
+              ".image-block when (@flexDirection)": {
+                "padding-left": "2rem"
+              },
+              ".image-block when not (@flexDirection)": {
+                "padding-right": "2rem"
+              }
+            },
+            "@media (max-width: 767px)": {
+              ".image-block": {
+                "padding-bottom": "1rem"
+              }
+            }
+          },
+          "_name": "features10",
+          "_customHTML": "<section class=\"features10\" group=\"Features\" plugins=\"amp-main\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n\n        <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" value=\"2\" step=\"1\">\n        <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" value=\"2\" step=\"1\">\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked=\"\">\n        <input type=\"checkbox\" title=\"Show Text\" name=\"showText\" checked=\"\">\n        <input type=\"checkbox\" title=\"Show Button(s)\" name=\"showButtons\">\n        <input type=\"checkbox\" title=\"Media on Left/Right\" name=\"flexDirection\" checked=\"\">\n\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n       \n    <div class=\"container\">\n        <div class=\"mbr-row mbr-jc-c\" mbr-class=\"{'mbr-row-reverse': flexDirection}\">\n            <div class=\"image-block mbr-col-sm-12 mbr-col-md-6 \">\n                <amp-img src=\"@PROJECT_PATH@/assets/images/screen-shot-2020-12-23-at-2.51.54-pm-1044x587.png\" layout=\"responsive\" width=\"522.8892674616695\" height=\"294\" alt=\"Mobirise\" class=\"mobirise-loader\">\n                    <div placeholder=\"\" class=\"placeholder\"></div>\n                    <img class=\"mbr-temp\" src=\"@PROJECT_PATH@/assets/images/screen-shot-2020-12-23-at-2.51.54-pm-1044x587.png\" alt=\"Mobirise\" title=\"\">\n                </amp-img>\n            </div>\n            <div class=\"text-block mbr-col-sm-12 mbr-col-md-6 mbr-m-auto\">\n                <h3 class=\"mbr-section-title mbr-fonts-style align-left mbr-pt-1 mbr-pb-3\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">\n                    Where do I download it</h3>\n                <p class=\"mbr-fonts-style mbr-text align-left mbr-pt-1 mbr-pb-3\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">The game is currently available on the Google Play Store. For iOS devices and computers, use the download link on the bottom. iOS will offer a .IPA archive, macOS will offer a .app, and Windows is a compressed zip file</p>\n                <div class=\"mbr-section-btn align-left\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons=\"\" mbr-theme-style=\"display-4\">\n                    <a class=\"btn btn-sm btn-primary\" href=\"https://mobirise.co\">READ MORE</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk2hCvZOD7",
+          "_anchor": "features10-13",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "background-color": "@bgColor"
+          },
+          "_name": "content5",
+          "_customHTML": "<section class=\"mbr-section content5\" plugins=\"amp-main\" group=\"Article\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"4\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"4\">\n        <input type=\"color\" title=\"Backgroud Color\" name=\"bgColor\" value=\"#ffffff\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-jc-c\">\n            <div class=\"mbr-section-btn mbr-col-md-12 mbr-col-sm-12 mbr-col-lg-8 align-center\" mbr-buttons mbr-theme-style=\"display-4\" data-toolbar=\"-mbrBtnMove\"><a class=\"btn btn-primary\" href=\"page2.html\" data-app-placeholder=\"Type Text\">Download</a>\n                <a class=\"btn btn-black-outline\" href=\"https://mobirise.co\" data-app-placeholder=\"Type Text\">Donate</a></div>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk2huXm9dp",
+          "_anchor": "content5-12",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            }
+          },
+          "_name": "footer1",
+          "_customHTML": "<section class=\"footer1\" group=\"Footers\" plugins=\"amp-main\" global once=\"footer\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/background6.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#232323\" selected>\n        </fieldset>\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"align-center mbr-white mbr-p-1\">\n            <p class=\"mbr-text mbr-fonts-style \" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-text\" data-app-placeholder=\"Type Text\">Created by Ryan Pineda. ryanpineda@rypixel.net</p>\n        </div>\n    </div>\n</section>",
+          "_cid": "sk236In7Nt",
+          "_anchor": "footer1-w",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footer",
+          "_params": {}
+        }
+      ]
+    }
+  }
+}
