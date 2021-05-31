@@ -65,6 +65,16 @@
                     document.getElementById('gametype').innerHTML = "Game: " + data.session.gameType;
                     document.getElementById('mode').innerHTML = "Mode: " + data.session.mode;
                     document.getElementById('map').innerHTML = "Map: " + data.session.map;
+                    // $.get('https://maker.ifttt.com/trigger/hypixel_online/with/key/hdcyqU7eFmUXbdcpmbAwknq0ML4r-g_Tt_i-n7QxU45', function(data) {
+                    //     print("online pog");
+                    // });
+                    $.ajax({
+                        type: "POST",
+                        url: 'https://maker.ifttt.com/trigger/hypixel_online/with/key/hdcyqU7eFmUXbdcpmbAwknq0ML4r-g_Tt_i-n7QxU45'
+                        // data: data,
+                        // success: success,
+                        // dataType: dataType
+                    });
                 } else {
                     document.getElementById('status').innerHTML = "Status: Offline";
                     document.getElementById('gametype').innerHTML = "Game: N/A";
