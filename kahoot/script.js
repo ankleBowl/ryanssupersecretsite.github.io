@@ -52,7 +52,7 @@ function connectToServer() {
             questionCountdown();
         }
         if (data[0] == "review") {
-            stopMP3();
+            playMP3("music/questionend.mp3")
             document.getElementById("reviewContainer").style.display = "flex";
             document.getElementById("score").innerHTML = data[1]
             if (data[7] == "1") {
@@ -89,6 +89,9 @@ function connectToServer() {
                 document.getElementById("playerPosition").setAttribute("style", "background-color: rgb(22, 187, 63)")
                 document.getElementById("score").setAttribute("style", "background-color: rgb(22, 187, 63)")
             }
+        }
+        if (data[0] == "playendtheme") {
+            playMP3("music/podium.mp3")
         }
     }
 }
