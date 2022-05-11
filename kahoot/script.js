@@ -8,7 +8,7 @@ ws = null
 
 function connectToServer() {
     console.log("Connecting...")
-    ws = new WebSocket("wss://162.195.241.63:25565");
+    ws = new WebSocket("ws://162.195.241.63:25565");
     ws.onopen = function() {
         ws.send("name," + document.getElementById("name").value);
         document.getElementById("loginContainer").style.display = "none";
