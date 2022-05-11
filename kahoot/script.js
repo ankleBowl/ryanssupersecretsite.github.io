@@ -60,9 +60,6 @@ function connectToServer() {
             } else {
                 document.getElementById("playerPosition").innerHTML = "You are in " + data[7] + "th place!";
             }
-
-
-
             html = ""
             for (var i = 2; i < 7; i++) {
                 console.log(data[i])
@@ -73,6 +70,28 @@ function connectToServer() {
                 html += "<div class=\"leaderboardEntry\"><div class=\"leaderboardEntryName\">" + contents[0] + "</div><div class=\"leaderboardEntryScore\">" + contents[1] + "</div></div>"
             }
             document.getElementById("leaderboard").innerHTML = html;
+        }
+        if (data[0] == "answer") {
+            if (document.getElementById("score").classList.contains("correct")) {
+                document.getElementById("score").classList.remove("correct")
+            }
+            if (document.getElementById("score").classList.contains("incorrect")) {
+                document.getElementById("score").classList.remove("incorrect")
+            }
+
+            if (document.getElementById("playerPosition").classList.contains("correct")) {
+                document.getElementById("playerPosition").classList.remove("correct")
+            }
+            if (document.getElementById("playerPosition").classList.contains("incorrect")) {
+                document.getElementById("playerPosition").classList.remove("incorrect")
+            }
+            if (data[1] == "incorrect") {
+                document.getElementById("playerPosition").classList.add("incorrect")
+                document.getElementById("score").classList.add("incorrect")
+            } else {
+                document.getElementById("playerPosition").classList.add("correct")
+                document.getElementById("score").classList.add("correct")
+            }
         }
     }
 }
