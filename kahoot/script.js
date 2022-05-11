@@ -29,6 +29,7 @@ function connectToServer() {
             console.log("Server start issued")
             document.getElementById("prematchContainer").style.display = "none";
             document.getElementById("countdownContainer").style.display = "block";
+            loop = false
             stopMP3();
             startingCountdown()
         }
@@ -128,12 +129,20 @@ function guessAnswer(index) {
 }
 
 audio = document.getElementById("audioPlayer");
+loop = true
 
 function playMP3(name) {
     stopMP3();
     audio.children[0].src = name;
     audio.load();
     audio.play();
+
+    audio.addEventListener('ended', function() {
+        if (loop) {
+            this.currentTime = 0;
+            this.play();
+        }
+    }, false);
 }
 
 function stopMP3() {
