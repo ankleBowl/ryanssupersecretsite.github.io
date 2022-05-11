@@ -1,0 +1,325 @@
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&display=swap" rel="stylesheet">
+        <title>Scuffed English Kahoot</title>
+        <style>
+            /* here is the css for the login screen */
+            body {
+                background-color: black;
+                background-image: url("assets/background.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+
+                font-family: 'Cabin', sans-serif;
+
+                margin:0;
+            }
+            .loginContainer {
+                /* this div is centered both horizontally and vertically */
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                background-color: #f5f5f5;
+                padding: 20px;
+                border-radius: 5px;
+            }
+
+            .nameInput {
+                padding: 10px;
+                font-size: 20px;
+                width: 100%;
+                font-family: 'Cabin', sans-serif;
+            }
+
+            .submitButton {
+                padding: 10px;
+                width: 100%;
+                font-size: 20px;
+                font-family: 'Cabin', sans-serif;
+                border: none;
+                background-color: rgb(63 29 139);
+                color:white;
+            }
+            
+
+            .hidden {
+                display: none;
+            }
+
+
+            /* Here is the CSS for the prematch view */
+            .prematchContainer {
+                width: 100%;
+                height: 100%;
+            }
+
+            .prematchPlayerContainer {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+
+                width: 50%;
+                
+                position: fixed;
+                left: 50%;
+                transform: translate(-50%, 0);
+                margin-top: 50px;
+            }
+
+            .prematchHeader {
+                font-size: 50px;
+                text-align: center;
+                padding: 50px;
+                
+                /* background-color: #f5f5f5; */
+                background-color: rgb(63 29 139);
+                color:white;
+            }
+
+            .playerWidget {
+                /* background-color:#f5f5f5; */
+                margin: 10px;
+                padding: 10px;
+                border-radius: 5px;
+                font-size:25px;
+                background-color: rgb(63 29 139);
+                color:white;
+
+                animation-name: playerJoin;
+                animation-duration: 0.5s;
+            }
+
+            @keyframes playerJoin {
+                0% {scale: 0;}
+                50% {scale: 125%;}
+                100% {scale: 100%;}
+            }
+
+
+            /* Here is the CSS for the countdown view */
+            #countdown {
+                font-size: 100px;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color:white;
+            }
+
+            .countdownCenterCircle {
+                border-radius: 1000px;
+                background-color: #f5f5f5;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                padding: 100px;
+                transform: translate(-50%, -50%);
+                background-color: rgb(63 29 139);
+            }
+
+            /* here is the CSS for the question view */
+            .questionContainer {
+                width: 100%;
+            }
+
+            #question {
+                font-size: 50px;
+                text-align: center;
+                
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                
+                color:white;
+                background-color: rgb(63 29 139);
+
+                border-radius: 16px;
+                padding: 50px;
+                width: 75%;
+            }
+
+            .questionTimer {
+                animation: questionTimer 5s linear;
+            }
+
+            @keyframes questionTimer {
+                0% {background-color: rgb(22, 145, 222);}
+                50% {background-color: rgb(31, 23, 185);}
+                100% {background-color: rgb(63 29 139);}
+            }
+
+            /* here is the CSS for the answering view */
+            .answeringContainer {
+                position:fixed;
+                width: 100%;
+                margin:0;
+            }
+
+            .answerButton {
+                /* height:40%; */
+                position:absolute;
+                width:50%;
+                height:40%;
+                top:20%;
+                border-top: solid 1px #000;
+
+                background-color:#ff3555;
+                border:none;
+                font-size:40px;
+            }
+
+            .answerButton:nth-child(2) {
+                left:50%;
+                transform: (50%, 0);
+                background-color:#45a3e5;
+            }
+
+            .answerButton:nth-child(3) {
+                left:0%;
+                top:60%;
+                transform: (0%, 40%);
+                background-color:#ffc00a;
+            }
+
+            .answerButton:nth-child(4) {
+                left:50%;
+                top:60%;
+                transform: (50%, 40%);
+                background-color:#66bf39;
+            }
+
+            #question2 {
+                font-size: 50px;
+                text-align: center;
+                color:white;
+                background-color: rgb(63 29 139);
+                height:20%;
+            }
+
+            /* here is the CSS for the results view */
+            #reviewContainer {
+                display: flex;
+                flex-wrap: nowrap;
+                flex-direction: row;
+                height:100%;
+                color:white;
+            }
+
+            .personalStats {
+                display: flex;
+                flex-direction:column;
+                align-items: center;
+                justify-content: center;
+                /* background-color: #f5f5f5; */
+                flex: 1;
+                height:100%;
+            }
+
+            #playerPosition {
+                background-color: rgb(31, 23, 185);
+                padding:25px; 
+                margin: 10px;
+                border-radius: 5px;
+                font-size: 20px;
+                text-align:center;
+            }
+
+            #score {
+                background-color: rgb(31, 23, 185);
+                padding:25px; 
+                margin: 10px;
+                border-radius: 5px;
+                font-size: 20px;
+                text-align:center;
+            }
+
+            #leaderboard {
+                display: flex;
+                flex-direction:column;
+                align-items: center;
+                justify-content: center;
+                flex: 1;
+                /* background-color: orange; */
+                height:100%;
+            }
+
+            .leaderboardEntry {
+                display: flex;
+                flex-direction:row;
+                justify-content: space-between;
+                width: 80%;
+                background-color: rgb(31, 23, 185);
+                padding:25px; 
+                border-radius: 5px;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="loginContainer" class="loginContainer">
+            <input class="nameInput" type="text" id="name" placeholder="Enter your name">
+            <br>
+            <button class="submitButton" id="connect" onclick=connectToServer()>Connect</button>
+        </div>
+        <div id="prematchContainer" class="prematchContainer">
+            <div class="prematchHeader">Waiting for Players...</div>
+            <div id="playerList" class="prematchPlayerContainer">
+                <div class="playerWidget">Player1</div>
+                <div class="playerWidget">Player2</div>
+                <div class="playerWidget">Player3</div>
+                <div class="playerWidget">Player4</div>
+                <div class="playerWidget">Player5</div>
+                <div class="playerWidget">Player6</div>
+                <div class="playerWidget">Player7</div>
+                <div class="playerWidget">Player8</div>
+                <div class="playerWidget">Player9</div>
+                <div class="playerWidget">Player10</div>
+                <div class="playerWidget">Player5</div>
+                <div class="playerWidget">Player6</div>
+                <div class="playerWidget">Player7</div>
+                <div class="playerWidget">Player8</div>
+                <div class="playerWidget">Player9</div>
+                <div class="playerWidget">Player10</div>
+            </div>
+            <button onclick=start()>Start</button>
+        </div>
+        <div id="countdownContainer">
+            <div class="countdownCenterCircle"></div>
+            <div id="countdown">3</div>
+        </div>
+        <div id="questionContainer">
+            <div id="question" class="questionTimer"></div>
+        </div>
+        <div id="answeringContainer">
+            <div id="question2"></div>
+            <button id="ans1" class="answerButton" onclick=guessAnswer(1)>Answer 1</button>
+            <button id="ans2" class="answerButton" onclick=guessAnswer(2)>Answer 2</button>
+            <button id="ans3" class="answerButton" onclick=guessAnswer(3)>Answer 3</button>
+            <button id="ans4" class="answerButton" onclick=guessAnswer(4)>Answer 4</button>
+        </div>
+        <div id="reviewContainer">
+            <div class="personalStats">
+                <div id="score">1580</div> 
+                <div id="playerPosition">You are in nth place!</div>
+            </div>
+            <div id="leaderboard">
+                <div class="leaderboardEntry">
+                    <div class="leaderboardEntryName">Player1</div>
+                    <div class="leaderboardEntryScore">1580</div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="script.js"></script>
+</html>
