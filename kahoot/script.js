@@ -8,11 +8,12 @@ ws = null
 
 function connectToServer() {
     console.log("Connecting...")
-    ws = new WebSocket("ws://10.0.0.25:13254");
+    ws = new WebSocket("ws://162.195.241.63:25565");
     ws.onopen = function() {
         ws.send("name," + document.getElementById("name").value);
         document.getElementById("loginContainer").style.display = "none";
         document.getElementById("prematchContainer").style.display = "block";
+        playMP3("music/lobby.mp3")
     }
     ws.onmessage = function(event) {
         console.log(event.data);
@@ -28,6 +29,7 @@ function connectToServer() {
             console.log("Server start issued")
             document.getElementById("prematchContainer").style.display = "none";
             document.getElementById("countdownContainer").style.display = "block";
+            stopMP3();
             startingCountdown()
         }
         if (data[0] == "question") {
@@ -49,6 +51,7 @@ function connectToServer() {
             questionCountdown();
         }
         if (data[0] == "review") {
+            stopMP3();
             document.getElementById("reviewContainer").style.display = "flex";
             document.getElementById("score").innerHTML = data[1]
             if (data[7] == "1") {
@@ -72,25 +75,18 @@ function connectToServer() {
             document.getElementById("leaderboard").innerHTML = html;
         }
         if (data[0] == "answer") {
-            if (document.getElementById("score").classList.contains("correct")) {
-                document.getElementById("score").classList.remove("correct")
+            if (document.getElementById("score").hasAttribute("style")) {
+                document.getElementById("score").removeAttribute("style");
             }
-            if (document.getElementById("score").classList.contains("incorrect")) {
-                document.getElementById("score").classList.remove("incorrect")
-            }
-
-            if (document.getElementById("playerPosition").classList.contains("correct")) {
-                document.getElementById("playerPosition").classList.remove("correct")
-            }
-            if (document.getElementById("playerPosition").classList.contains("incorrect")) {
-                document.getElementById("playerPosition").classList.remove("incorrect")
+            if (document.getElementById("playerPosition").hasAttribute("style")) {
+                document.getElementById("playerPosition").removeAttribute("style");
             }
             if (data[1] == "incorrect") {
-                document.getElementById("playerPosition").classList.add("incorrect")
-                document.getElementById("score").classList.add("incorrect")
+                document.getElementById("playerPosition").setAttribute("style", "background-color: rgb(173, 38, 38);")
+                document.getElementById("score").setAttribute("style", "background-color: rgb(173, 38, 38);")
             } else {
-                document.getElementById("playerPosition").classList.add("correct")
-                document.getElementById("score").classList.add("correct")
+                document.getElementById("playerPosition").setAttribute("style", "background-color: rgb(22, 187, 63)")
+                document.getElementById("score").setAttribute("style", "background-color: rgb(22, 187, 63)")
             }
         }
     }
@@ -117,6 +113,8 @@ async function questionCountdown() {
     await delay(5);
     document.getElementById("questionContainer").style.display = "none";
     document.getElementById("answeringContainer").style.display = "block";
+    var random = Math.floor(Math.random() * 3) + 1;
+    playMP3("music/question" + random + ".mp3")
 }
 
 function start() {
@@ -127,4 +125,17 @@ function start() {
 function guessAnswer(index) {
     ws.send("answer," + index);
     document.getElementById("answeringContainer").style.display = "none";
+}
+
+audio = document.getElementById("audioPlayer");
+
+function playMP3(name) {
+    stopMP3();
+    audio.children[0].src = name;
+    audio.load();
+    audio.play();
+}
+
+function stopMP3() {
+    audio.pause();
 }
