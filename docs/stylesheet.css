@@ -145,6 +145,9 @@ body {
     height: calc(25px + 7.5vh);
     font-family: 'Oxygen', sans-serif;
     
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    border-bottom-color: #D8DEE9;
 }
 
 .header div {
@@ -180,6 +183,8 @@ body {
     text-align: center;
     font-family: 'Oxygen', sans-serif;
     color: #D8DEE9;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .downarrow {
@@ -203,8 +208,8 @@ body {
 
 /* flex box */
 .contents {
-    padding-left: 5vw;
-    padding-right: 5vw;
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
 
     /* background-color:pink; */
 }
@@ -232,13 +237,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     /* background-color: blue; */
 }
 
 .crazedLaptopGuy img {
     width: 40vw;
+    min-width: 500px;
     height: auto;
     border-radius: 20px;
 }
@@ -247,6 +253,11 @@ body {
     font-family: 'Oxygen', sans-serif;
     color: #D8DEE9;
     font-size: 20px;
+}
+
+a {
+    color: #D8DEE9;
+    text-decoration: none;
 }
 
 .header1 {

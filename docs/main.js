@@ -15,3 +15,7 @@ window.onscroll = function() {
         }
     }
 }
+
+function refresh() {
+    window.location.reload();
+}
