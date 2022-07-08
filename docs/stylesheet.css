@@ -120,7 +120,7 @@ body {
 }
 
 .spacer {
-    flex: 1;   
+    flex: 1;
 }
 
 .fadeIn {
@@ -131,6 +131,15 @@ body {
 .fadeOut {
     transition: opacity 0.25s ease-in-out;
     opacity: 0;
+}
+
+.roundedBox {
+    background-color:#434C5E;
+    border-radius: 20px;
+}
+
+.textCenter {
+    text-align: center;
 }
 
 /* Header stuffs */
@@ -208,16 +217,16 @@ body {
 
 /* flex box */
 .contents {
-    padding-left: 2.5vw;
-    padding-right: 2.5vw;
+    /* padding-left: 2.5vw; */
+    padding: 2.5vw;
 
     /* background-color:pink; */
 }
 
 /* About content */
 .about {
-    padding-top: 5vw;
-    padding-bottom: 5vw;
+    padding-top: 2.5vw;
+    padding-bottom: 2.5vw;
     display: flex;
     width: 100%;
     justify-content: space-evenly;
@@ -265,6 +274,8 @@ a {
     color: #D8DEE9;
     font-size: 30px;
     font-family: 'Oxygen', sans-serif;
+    padding-top: 2.5vw;
+    padding-bottom: 2.5vw;
 }
 
 /* User testimonials */
@@ -278,8 +289,8 @@ a {
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-    padding-top: 5vw;
-    padding-bottom: 5vw;
+    padding-top: 2.5vw;
+    padding-bottom: 2.5vw;
 }
 
 .testimonial {
