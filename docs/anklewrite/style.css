@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --maincolor0: #A4BAB7;
+    --maincolor1: #233D4D;
+    --accentcolor0: #FFCAD4;
+    --accentcolor1: #C49799;
+    --accentcolor2: #A3333D;
+}
+
+body {
+    margin: 0;
+    background-color: var(--maincolor0);
+    font-family: 'Roboto Slab', serif;
+}
+
+/* reusable classes */
+.horizontalFlex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.verticalFlex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.centerFlex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.scrollable {
+    overflow-y: scroll;
+}
+
+.fullFlexItem {
+    flex: 1;
+}
+
+.fullHeight {
+    height: 100%;
+}
+
+/* things for the home screen */
+.containerPadding {
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.listItem {
+    background-color: var(--maincolor1);
+    width: 100%;
+    margin-top: 1px;
+    padding: 10px;
+    color: white;
+}
+
+.selected {
+    background-color: var(--accentcolor0);
+}
+
+.mainwindow {
+    width: calc(100vw - 100px);
+    height: calc(100vh - 100px);
+}
+
+.leftsection {
+    background-color: var(--maincolor0);
+}
+
+.editor {
+    background-color: white;
+    width: 97%;
+    height: 97%;
+}
+
+.border {
+    /* border-color: var(--maincolor1);
+    border-style: solid;
+    border-width: 10px */
+}
+
+textarea {
+    border: none;
+    font-family: 'Roboto Slab', serif;
+    padding: 10px;
+}
+
+#notename {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.deleteButton {
+    background-color: var(--accentcolor1);
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 20px;
+}

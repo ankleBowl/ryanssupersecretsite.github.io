@@ -1,0 +1,248 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ankleWrite Home</title>
+</head>
+<body class="containerPadding">
+    <div id="container" class="horizontalFlex fullHeight mainwindow">
+        <div id="leftsection" class="fullFlexItem fullHeight scrollable leftsection border">
+        </div>
+        <!-- <div style="height: 100%; width: 10px; background-color: var(--maincolor1)"></div> -->
+        <div class="fullFlexItem fullHeight centerFlex">
+            <div class="editor">
+                <div class="verticalFlex fullHeight">
+                    <textarea id="notename" style="width: 100%;""></textarea>
+                    <textarea id="editor" class="fullFlexItem" style="width: 100%;""></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let serverAddress = "https://lyesoftware.pythonanywhere.com/"
+
+    // Check if the session ID is in the URL
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var c = url.searchParams.get("token");
+    if (c != null) {
+        if (c.length = 64) {
+            localStorage.setItem("sessionID", c);
+        }
+    }
+
+    // Check if the session ID is in the local storage
+    var temp = localStorage.getItem("sessionID");
+    if (temp == null) {
+        localStorage.setItem("sessionID", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+    }
+
+    // Read the session ID from the local storage and check if it is valid
+    var sessionID = localStorage.getItem("sessionID");
+    if (!sessionIsValid(sessionID)) {
+        window.location.href = "https://anklebowl.pythonanywhere.com/signin/www.rypixel.net-anklewrite-home.html";
+    }
+
+    // Server side functions
+    function getURL(url) {
+        // get the contents of the url
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", url, false);
+        xmlHttp.send(null);
+        return xmlHttp.responseText;
+    }
+
+    function postURL(url, data) {
+        // post the data to the url
+        console.log("Posting to " + url + " with data " + data);
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", url, true);
+        xhttp.setRequestHeader("Content-type", "text/plain");
+        xhttp.send(data);
+        return xhttp.responseText;
+    }
+
+    function sessionIsValid(id) {
+        // make an https request to the server to check if the session ID is valid
+        var state = getURL(serverAddress + "checksessionid/" + id)
+        if (state == "invalid") {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function getNoteList() {
+        console.log("Getting note list");
+        // make an https request to the server to get the list of notes
+        var notes = getURL(serverAddress + sessionID + "/listnotes");
+        if (notes == "Invalid token" || notes == "") {
+            return [];
+        } else {
+            return notes.split("|");
+        }
+    }
+
+    function getNote(name) {
+        // make an https request to the server to get the note
+        var note = getURL(serverAddress + sessionID + "/getnote/" + name);
+        if (note == "Invalid token" || note == "Note does not exist") {
+            return "This note no longer exists";
+        } else {
+            console.log("Fetched note " + name + " with content " + note);
+            return note;
+        }
+    }
+
+    function createNote(name) {
+        // make an https request to the server to create a note
+        var state = getURL(serverAddress + sessionID + "/createnote/" + name);
+        if (state == "Invalid token" || state == "Note already exists") {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function deleteNote(name) {
+        // make an https request to the server to delete a note
+        var state = getURL(serverAddress + sessionID + "/deletenote/" + name);
+        if (state == "Invalid token" || state == "Note does not exist") {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function renameNote(name, newName) {
+        // make an https request to the server to rename a note
+        var state = getURL(serverAddress + sessionID + "/renamenote/" + name + "/" + newName);
+        console.log("Renamed note " + name + " to " + newName + " with state " + state);
+        if (state == "Invalid token" || state == "Note does not exist" || state == "Note already exists") {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function saveNote(name) {
+        // console.log("Saving Note: " + name);
+        var editor = document.getElementById("editor");
+        var state = postURL(serverAddress + sessionID + "/savenote/" + name, editor.value);
+        console.log("Saving Note: " + name + " returned " + state);
+        if (state == "Invalid token" || state == "Note does not exist") {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    // Internal variables for storing notes and the current note
+    var noteNames = [];
+    var currentNoteName = "";
+
+    var lastkeyboardclick = 0;
+    var edited = false;
+
+    // Utility functions
+    function loadNote(name) {
+        console.log("Loading Note: " + name);
+        saveNote(currentNoteName)
+        currentNoteName = name;
+        document.getElementById("notename").value = name;
+        document.getElementById("editor").value = getNote(name);;
+        
+        // Update the left section
+        var leftsection = document.getElementById("leftsection");
+        for (var i = 0; i < noteNames.length; i++) {
+            if (noteNames[i] == name) {
+                var newSelected = document.getElementById(name);
+                newSelected.classList.add("selected");
+            } else {
+                document.getElementById(noteNames[i]).classList.remove("selected");
+            }
+        }
+    }
+
+    function changeNoteName(name) {
+        var newName = prompt("Enter a new name for the note");
+        console.log("Changing Note Name: " + name + " to " + newName);
+        saveNote(currentNoteName)
+        renameNote(name, newName)
+        document.getElementById("leftsection").innerHTML = "";
+        createNoteList();
+        loadNote(newName);
+    }
+
+    function changeNoteName(name, newName) {
+        console.log("Changing Note Name: " + name + " to " + newName);
+        saveNote(currentNoteName)
+        renameNote(name, newName)
+        document.getElementById("leftsection").innerHTML = "";
+        createNoteList();
+        loadNote(newName);
+    }
+
+    function createNewNote() {
+        var newName = prompt("Enter a name for the new note");
+        console.log("Creating New Note: " + newName);
+        saveNote(currentNoteName)
+        createNote(newName)
+        document.getElementById("leftsection").innerHTML = "";
+        createNoteList();
+        loadNote(newName);
+    }
+
+    function removeNote(noteName) {
+        console.log("Removing Note: " + noteName);
+        deleteNote(noteName)
+        document.getElementById("leftsection").innerHTML = "";
+        createNoteList();
+        loadNote(noteNames[0]);
+    }
+
+    function createNoteList() {
+        // Get the list of notes from the server
+        noteNames = getNoteList();
+        // Iterate through the list to show the notes in the left section
+        let leftSectionEntry = "<div onclick=\"FUNCTIONGOESHERE\" id=\"IDGOESHERE\" class=\"horizontalFlex listItem\"><div>NAMEGOESHERE</div><div class=\"fullFlexItem\"></div><button class=\"deleteButton\" onclick=\"DELETEFUNCTINOGOESHERE\">Delete</button></div>"
+        for (var i = 0; i < noteNames.length; i++) {
+            var newEntry = leftSectionEntry.replace("NAMEGOESHERE", noteNames[i]);
+            newEntry = newEntry.replace("IDGOESHERE", noteNames[i]);
+            newEntry = newEntry.replace("FUNCTIONGOESHERE", "loadNote('" + noteNames[i] + "')");
+            newEntry = newEntry.replace("CHANGEFUNCTIONGOESHERE", "changeNoteName('" + noteNames[i] + "')");
+            newEntry = newEntry.replace("DELETEFUNCTINOGOESHERE", "removeNote('" + noteNames[i] + "')");
+            document.getElementById("leftsection").innerHTML += newEntry;
+            console.log(noteNames[i]);
+        }
+        let createNote = "<div onclick=\"createNewNote()\" class=\"horizontalFlex listItem\" style=\"background-color: var(--accentcolor1);\"><div style=\"text-align: center;\">Create New Note</div></div>"
+        document.getElementById("leftsection").innerHTML += createNote;
+    }
+
+    createNoteList();
+    // Load the first note
+    loadNote(noteNames[0]);
+
+    // For checking when to save
+    var document = document.getElementById('editor');
+    document.addEventListener('keydown', function(e) {
+        lastkeyboardclick = new Date().getTime();
+        edited = true;
+    })
+
+    // Save the current note every second where there is no typing
+    setInterval(function() {
+        if (new Date().getTime() - lastkeyboardclick > 1000 && edited) {
+            saveNote(currentNoteName);
+            if (currentNoteName != document.getElementById("notename").value) {
+                changeNoteName(currentNoteName, document.getElementById("notename").value);
+            }
+            edited = false;
+        }
+    }, 1000);
+
+</script>
+<link rel="stylesheet" href="style.css">
+</html>
