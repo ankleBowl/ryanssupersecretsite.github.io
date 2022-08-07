@@ -217,6 +217,8 @@
             document.getElementById("leftsection").innerHTML += newEntry;
             console.log(noteNames[i]);
         }
+        let langAd = "<div onclick=\"createNewNote()\" class=\"horizontalFlex listItem\" style=\"background-color: wheat; color: \"><div style=\"text-align: center;\">Need help studying? Try <a href=\"www.nwvbug.com/Lang\">NWVBUG's Lang!</a></div></div>"
+        document.getElementById("leftsection").innerHTML += langAd;
         let createNote = "<div onclick=\"createNewNote()\" class=\"horizontalFlex listItem\" style=\"background-color: var(--accentcolor1);\"><div style=\"text-align: center;\">Create New Note</div></div>"
         document.getElementById("leftsection").innerHTML += createNote;
     }
