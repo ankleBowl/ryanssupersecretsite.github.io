@@ -7,14 +7,14 @@
 </head>
 <body class="containerPadding">
     <div id="container" class="horizontalFlex fullHeight mainwindow">
-        <div id="leftsection" class="fullFlexItem fullHeight scrollable leftsection border">
+        <div id="leftsection" class="fullFlexItem fullHeight scrollable leftsection border hideScroll">
         </div>
         <!-- <div style="height: 100%; width: 10px; background-color: var(--maincolor1)"></div> -->
         <div class="fullFlexItem fullHeight centerFlex">
             <div class="editor">
-                <div class="verticalFlex fullHeight">
-                    <textarea id="notename" style="width: 100%;""></textarea>
-                    <textarea id="editor" class="fullFlexItem" style="width: 100%;""></textarea>
+                <div class="verticalFlex" style="padding: 2.5vw; height: calc(100% - 5vw)">
+                    <div contentEditable="true" id="notename" style="width: 100%;""></div>
+                    <div contentEditable="true" id="editor" class="fullFlexItem hideScroll" style="width: 100%; overflow-y: scroll;"></div>
                 </div>
             </div>
         </div>
@@ -130,7 +130,7 @@
     function saveNote(name) {
         // console.log("Saving Note: " + name);
         var editor = document.getElementById("editor");
-        var state = postURL(serverAddress + sessionID + "/savenote/" + name, editor.value);
+        var state = postURL(serverAddress + sessionID + "/savenote/" + name, editor.innerText);
         console.log("Saving Note: " + name + " returned " + state);
         if (state == "Invalid token" || state == "Note does not exist") {
             return false;
@@ -151,8 +151,8 @@
         console.log("Loading Note: " + name);
         saveNote(currentNoteName)
         currentNoteName = name;
-        document.getElementById("notename").value = name;
-        document.getElementById("editor").value = getNote(name);;
+        document.getElementById("notename").innerText = name;
+        document.getElementById("editor").innerText = getNote(name);;
         
         // Update the left section
         var leftsection = document.getElementById("leftsection");
@@ -238,8 +238,8 @@
     setInterval(function() {
         if (new Date().getTime() - lastkeyboardclick > 1000 && edited) {
             saveNote(currentNoteName);
-            if (currentNoteName != document.getElementById("notename").value) {
-                changeNoteName(currentNoteName, document.getElementById("notename").value);
+            if (currentNoteName != document.getElementById("notename").innerText) {
+                changeNoteName(currentNoteName, document.getElementById("notename").innerText);
             }
             edited = false;
         }
