@@ -152,7 +152,10 @@
         saveNote(currentNoteName)
         currentNoteName = name;
         document.getElementById("notename").innerText = name;
-        document.getElementById("editor").innerText = getNote(name);;
+
+        var noteContents = getNote(name)
+        noteContents = markdownToHTML(noteContents)
+        document.getElementById("editor").innerHTML = noteContents;
         
         // Update the left section
         var leftsection = document.getElementById("leftsection");
@@ -236,6 +239,9 @@
 
     // Save the current note every second where there is no typing
     setInterval(function() {
+
+        document.getElementById("editor").innerHTML = markdownToHTML(document.getElementById("editor").innerText)
+
         if (new Date().getTime() - lastkeyboardclick > 1000 && edited) {
             saveNote(currentNoteName);
             if (currentNoteName != document.getElementById("notename").innerText) {

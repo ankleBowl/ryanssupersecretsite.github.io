@@ -1,0 +1,118 @@
+var currentChar, inputString, markdownPatterns, patterns, rReturn;
+
+class markdownPattern {
+  constructor(pattern) {
+    this.pattern = pattern;
+    this.loggedStartIndex = false;
+    this.textCharInEmpty = false;
+    this.tempStartIndex = 0;
+    this.tempEndIndex = 0;
+    this.currentIndex = 0;
+    this.wordsInBlankSpace = [];
+    this.wordInBlankSpace = "";
+  }
+
+  checkNextCharacterValid(character, index) {
+    var patternMatched, result;
+    patternMatched = false;
+
+    if (this.pattern[this.currentIndex] === character) {
+      this.currentIndex += 1;
+      patternMatched = true;
+    } else {
+      if (this.pattern[this.currentIndex] === "!") {
+        if (this.pattern[this.currentIndex + 1] === character && this.textCharInEmpty) {
+          this.currentIndex += 2;
+          this.textCharInEmpty = false;
+          patternMatched = true;
+          this.wordsInBlankSpace.push(this.wordInBlankSpace);
+          this.wordInBlankSpace = "";
+        } else {
+          if (this.pattern[this.currentIndex + 1] === character && !this.textCharInEmpty) {
+            patternMatched = false;
+          } else {
+            this.wordInBlankSpace += character;
+            this.textCharInEmpty = true;
+            patternMatched = true;
+          }
+        }
+      }
+    }
+
+    if (this.currentIndex === 1 && !this.loggedStartIndex) {
+      this.tempStartIndex = index;
+      this.loggedStartIndex = true;
+    }
+
+    if (this.pattern.length === this.currentIndex) {
+      this.tempEndIndex = index;
+      result = new markdownResult(this.tempStartIndex, this.tempEndIndex, this.wordsInBlankSpace, this.pattern);
+      this.reset();
+      return result;
+    }
+
+    if (!patternMatched && this.currentIndex > 0) {
+      this.reset();
+    }
+  }
+
+  reset() {
+    this.currentIndex = 0;
+    this.textCharInEmpty = false;
+    this.tempEndIndex = 0;
+    this.loggedStartIndex = false;
+    this.wordInBlankSpace = "";
+    this.wordsInBlankSpace = [];
+  }
+
+}
+
+class markdownResult {
+  constructor(startIndex, endIndex, wordsInBlankSpace, pattern) {
+    this.startIndex = startIndex;
+    this.endIndex = endIndex;
+    this.wordsInBlankSpace = wordsInBlankSpace;
+    this.pattern = pattern;
+  }
+}
+
+// inputString = "Markdown *is* cool, my **parser** can even handle links like [Test](https://www.google.com).";
+function getMarkdownPatterns(input) {
+    patterns = [ new markdownPattern("[!](!)"), new markdownPattern("*!*"), new markdownPattern("**!**")];
+    markdownPatterns = [];
+
+    for (var x = 0, _pj_a = input.length; x < _pj_a; x += 1) {
+        currentChar = input[x];
+      
+        for (var pattern, _pj_d = 0, _pj_b = patterns, _pj_c = _pj_b.length; _pj_d < _pj_c; _pj_d += 1) {
+          pattern = _pj_b[_pj_d];
+          rReturn = pattern.checkNextCharacterValid(currentChar, x);
+      
+          if (rReturn) {
+            markdownPatterns.push(rReturn);
+          }
+        }
+      }
+    return markdownPatterns;
+}
+
+function markdownToHtmlVisible(input) {
+    var markdownPatterns = getMarkdownPatterns(input);
+    var outputString = ""
+
+    for (var x = 0; x < input.length; x++) {
+        currentChar = input[x];
+        outputString += currentChar;
+        for (var m = 0; m < markdownPatterns.length; m++) {
+            console.log(markdownPatterns[m].pattern);
+            if (markdownPatterns[m].startIndex === x + 1) {
+                outputString += "<span class='" + markdownPatterns[m].pattern + "'>";
+                console.log("Started")
+            }
+            if (markdownPatterns[m].endIndex === x) {
+                outputString += "</span>";
+            }
+        }
+    }
+    return outputString;
+}
