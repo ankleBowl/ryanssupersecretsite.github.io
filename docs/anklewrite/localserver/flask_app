@@ -1,0 +1,139 @@
+# A simple flask web app example
+
+import flask
+import requests
+import os
+from flask_cors import CORS, cross_origin
+
+app = flask.Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+
+@app.route('/checksessionid/<sessionid>')
+@cross_origin()
+def checksessionid(sessionid):
+    r = requests.get('http://127.0.0.1:5000/idfromtoken/' + sessionid)
+    userid = "test"
+    if userid == "Invalid token":
+        return "invalid"
+    else:
+        return "valid"
+
+@app.route('/<sessionid>/listnotes', methods=['GET'])
+@cross_origin()
+def listnotes(sessionid):
+    # make a request to anklebowl.pythonanywhere.com/idfromtoken to convert the sessionid to a userid
+    r = requests.get('http://127.0.0.1:5000/idfromtoken/' + sessionid)
+    userid = "test"
+    if userid == "Invalid token":
+        return "Invalid token"
+    noteFolderPath = userid + "/notes"
+    print("Creating folders for user " + userid)
+    if not os.path.exists(noteFolderPath):
+        os.makedirs(noteFolderPath)
+    # get the list of notes in the user's folder
+    noteList = os.listdir(noteFolderPath)
+    # iterate through the list of notes and create a csv file of note names to return
+    notes = ""
+    for note in noteList:
+        notes += note + "|"
+    return notes[:-1]
+
+@app.route('/<sessionid>/getnote/<notename>', methods=['GET'])
+@cross_origin()
+def getnote(sessionid, notename):
+    # make a request to anklebowl.pythonanywhere.com/idfromtoken to convert the sessionid to a userid
+    r = requests.get('http://127.0.0.1:5000/idfromtoken/' + sessionid)
+    userid = "test"
+    if userid == "Invalid token":
+        return "Invalid token"
+    noteFolderPath = userid + "/notes"
+    if not os.path.exists(noteFolderPath):
+        os.makedirs(noteFolderPath)
+    # get the note from the user's folder
+    notePath = noteFolderPath + "/" + notename
+    if not os.path.exists(notePath):
+        return "Note does not exist"
+    with open(notePath, 'r') as f:
+        note = f.read()
+    return note
+
+@app.route('/<sessionid>/createnote/<notename>', methods=['GET'])
+@cross_origin()
+def createnote(sessionid, notename):
+    # make a request to anklebowl.pythonanywhere.com/idfromtoken to convert the sessionid to a userid
+    r = requests.get('http://127.0.0.1:5000/idfromtoken/' + sessionid)
+    userid = "test"
+    if userid == "Invalid token":
+        return "Invalid token"
+    noteFolderPath = userid + "/notes"
+    if not os.path.exists(noteFolderPath):
+        os.makedirs(noteFolderPath)
+    # create the note in the user's folder
+    notePath = noteFolderPath + "/" + notename
+    if os.path.exists(notePath):
+        return "Note already exists"
+    with open(notePath, 'w') as f:
+        f.write("")
+    return "Note created"
+
+@app.route('/<sessionid>/deletenote/<notename>', methods=['GET'])
+@cross_origin()
+def deletenote(sessionid, notename):
+    # make a request to anklebowl.pythonanywhere.com/idfromtoken to convert the sessionid to a userid
+    r = requests.get('http://127.0.0.1:5000/idfromtoken/' + sessionid)
+    userid = "test"
+    if userid == "Invalid token":
+        return "Invalid token"
+    noteFolderPath = userid + "/notes"
+    if not os.path.exists(noteFolderPath):
+        os.makedirs(noteFolderPath)
+    # delete the note from the user's folder
+    notePath = noteFolderPath + "/" + notename
+    if not os.path.exists(notePath):
+        return "Note does not exist"
+    os.remove(notePath)
+    return "Note deleted"
+
+@app.route('/<sessionid>/renamenote/<notename>/<newname>', methods=['GET'])
+@cross_origin()
+def renamenote(sessionid, notename, newname):
+    # make a request to anklebowl.pythonanywhere.com/idfromtoken to convert the sessionid to a userid
+    r = requests.get('http://127.0.0.1:5000/idfromtoken/' + sessionid)
+    userid = "test"
+    if userid == "Invalid token":
+        return "Invalid token"
+    noteFolderPath = userid + "/notes"
+    if not os.path.exists(noteFolderPath):
+        os.makedirs(noteFolderPath)
+    # rename the note in the user's folder
+    notePath = noteFolderPath + "/" + notename
+    if not os.path.exists(notePath):
+        return "Note does not exist"
+    newNotePath = noteFolderPath + "/" + newname
+    if os.path.exists(newNotePath):
+        return "Note already exists"
+    os.rename(notePath, newNotePath)
+    return "Note renamed"
+
+@app.route('/<sessionid>/savenote/<notename>', methods=['POST'])
+@cross_origin()
+def savenote(sessionid, notename):
+    # make a request to anklebowl.pythonanywhere.com/idfromtoken to convert the sessionid to a userid
+    r = requests.get('http://127.0.0.1:5000/idfromtoken/' + sessionid)
+    userid = "test"
+    if userid == "Invalid token":
+        return "Invalid token"
+    noteFolderPath = userid + "/notes"
+    if not os.path.exists(noteFolderPath):
+        os.makedirs(noteFolderPath)
+    # save the note in the user's folder
+    notePath = noteFolderPath + "/" + notename
+    if not os.path.exists(notePath):
+        return "Note does not exist"
+    with open(notePath, 'w') as f:
+        f.write(flask.request.data.decode('utf-8'))
+    return "Note saved"
+
+if __name__ == '__main__':
+    app.run(port=8000, debug=True)

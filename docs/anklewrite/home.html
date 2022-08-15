@@ -13,16 +13,25 @@
         <div class="fullFlexItem fullHeight centerFlex">
             <div class="editor">
                 <div class="verticalFlex" style="padding: 2.5vw; height: calc(100% - 5vw)">
-                    <div contentEditable="true" id="notename" style="width: 100%;""></div>
+                    <div class="horizontalFlex" style="width: 100%;">
+                        <div contentEditable="true" id="notename" style="width: 100%;"></div>
+                        <div>
+                            <button onclick="toggleViewMode()" id="toggleviewbutton" class="button">Toggle</button>
+                        </div>
+                    </div>
                     <div contentEditable="true" id="editor" class="fullFlexItem hideScroll" style="width: 100%; overflow-y: scroll;"></div>
                 </div>
             </div>
         </div>
     </div>
 </body>
+<script src="markdown.js"></script>
+<script src="servercalls.js"></script>
 <script>
-    let serverAddress = "https://lyesoftware.pythonanywhere.com/"
-
+    // let serverAddress = "https://lyesoftware.pythonanywhere.com/"
+    let serverAddress = "http://127.0.0.1:8000/"
+    
+// Here at ankleWrite, you can use our online note taking application to have the utmost privacy and incredible performance. Our minimalistic UI puts the focus exactly where it should be, at your writing. On the left, you have access to incredibly powerful features, such as creating new notes, or deleting existing ones. On the right, lives our beautiful text editor. Featuring the font, Roboto Slab, a simple monochromatic view, free of distraction, allows you to truly enjoy your writing experience. We hope you enjoy using ankleWrite just as much as we enjoyed creating it - ankleWrite team
     // Check if the session ID is in the URL
     var url_string = window.location.href;
     var url = new URL(url_string);
@@ -45,106 +54,15 @@
         window.location.href = "https://anklebowl.pythonanywhere.com/signin/www.rypixel.net-anklewrite-home.html";
     }
 
-    // Server side functions
-    function getURL(url) {
-        // get the contents of the url
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("GET", url, false);
-        xmlHttp.send(null);
-        return xmlHttp.responseText;
-    }
-
-    function postURL(url, data) {
-        // post the data to the url
-        console.log("Posting to " + url + " with data " + data);
-        var xhttp = new XMLHttpRequest();
-        xhttp.open("POST", url, true);
-        xhttp.setRequestHeader("Content-type", "text/plain");
-        xhttp.send(data);
-        return xhttp.responseText;
-    }
-
-    function sessionIsValid(id) {
-        // make an https request to the server to check if the session ID is valid
-        var state = getURL(serverAddress + "checksessionid/" + id)
-        if (state == "invalid") {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    function getNoteList() {
-        console.log("Getting note list");
-        // make an https request to the server to get the list of notes
-        var notes = getURL(serverAddress + sessionID + "/listnotes");
-        if (notes == "Invalid token" || notes == "") {
-            return [];
-        } else {
-            return notes.split("|");
-        }
-    }
-
-    function getNote(name) {
-        // make an https request to the server to get the note
-        var note = getURL(serverAddress + sessionID + "/getnote/" + name);
-        if (note == "Invalid token" || note == "Note does not exist") {
-            return "This note no longer exists";
-        } else {
-            console.log("Fetched note " + name + " with content " + note);
-            return note;
-        }
-    }
-
-    function createNote(name) {
-        // make an https request to the server to create a note
-        var state = getURL(serverAddress + sessionID + "/createnote/" + name);
-        if (state == "Invalid token" || state == "Note already exists") {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    function deleteNote(name) {
-        // make an https request to the server to delete a note
-        var state = getURL(serverAddress + sessionID + "/deletenote/" + name);
-        if (state == "Invalid token" || state == "Note does not exist") {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    function renameNote(name, newName) {
-        // make an https request to the server to rename a note
-        var state = getURL(serverAddress + sessionID + "/renamenote/" + name + "/" + newName);
-        console.log("Renamed note " + name + " to " + newName + " with state " + state);
-        if (state == "Invalid token" || state == "Note does not exist" || state == "Note already exists") {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    function saveNote(name) {
-        // console.log("Saving Note: " + name);
-        var editor = document.getElementById("editor");
-        var state = postURL(serverAddress + sessionID + "/savenote/" + name, editor.innerText);
-        console.log("Saving Note: " + name + " returned " + state);
-        if (state == "Invalid token" || state == "Note does not exist") {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
     // Internal variables for storing notes and the current note
     var noteNames = [];
     var currentNoteName = "";
+    var currentNoteContents = "";
 
     var lastkeyboardclick = 0;
     var edited = false;
+
+    var inViewMode = false;
 
     // Utility functions
     function loadNote(name) {
@@ -154,8 +72,8 @@
         document.getElementById("notename").innerText = name;
 
         var noteContents = getNote(name)
-        noteContents = markdownToHTML(noteContents)
-        document.getElementById("editor").innerHTML = noteContents;
+        currentNoteContents = noteContents
+        document.getElementById("editor").innerHTML = currentNoteContents;
         
         // Update the left section
         var leftsection = document.getElementById("leftsection");
@@ -225,9 +143,8 @@
         let createNote = "<div onclick=\"createNewNote()\" class=\"horizontalFlex listItem\" style=\"background-color: var(--accentcolor1);\"><div style=\"text-align: center;\">Create New Note</div></div>"
         document.getElementById("leftsection").innerHTML += createNote;
     }
-
+    
     createNoteList();
-    // Load the first note
     loadNote(noteNames[0]);
 
     // For checking when to save
@@ -235,14 +152,12 @@
     document.addEventListener('keydown', function(e) {
         lastkeyboardclick = new Date().getTime();
         edited = true;
+        currentNoteContents = document.innerHTML;
     })
 
     // Save the current note every second where there is no typing
     setInterval(function() {
-
-        document.getElementById("editor").innerHTML = markdownToHTML(document.getElementById("editor").innerText)
-
-        if (new Date().getTime() - lastkeyboardclick > 1000 && edited) {
+        if (new Date().getTime() - lastkeyboardclick > 1000 && edited && !inViewMode) {
             saveNote(currentNoteName);
             if (currentNoteName != document.getElementById("notename").innerText) {
                 changeNoteName(currentNoteName, document.getElementById("notename").innerText);
@@ -250,7 +165,6 @@
             edited = false;
         }
     }, 1000);
-
 </script>
 <link rel="stylesheet" href="style.css">
 </html>

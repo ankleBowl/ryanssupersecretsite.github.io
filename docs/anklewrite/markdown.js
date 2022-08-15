@@ -74,6 +74,22 @@ class markdownResult {
     this.wordsInBlankSpace = wordsInBlankSpace;
     this.pattern = pattern;
   }
+
+  shouldRenderChar(index, character) {
+    // Check if the character is in the pattern
+    if (index < this.startIndex || index > this.endIndex) {
+      return true;
+    }
+    for (var i = 0; i < this.pattern.length; i++) {
+      // console.log("testing against pattern, startindex is " + this.startIndex + " and endindex is " + this.endIndex + ", character " + character + " is at index " + index);
+      if (this.pattern[i] == character) {
+        // console.log("returned false")
+        return false;
+
+      }
+    }
+    return true;
+  }
 }
 
 // inputString = "Markdown *is* cool, my **parser** can even handle links like [Test](https://www.google.com).";
@@ -106,12 +122,40 @@ function markdownToHtmlVisible(input) {
         for (var m = 0; m < markdownPatterns.length; m++) {
             console.log(markdownPatterns[m].pattern);
             if (markdownPatterns[m].startIndex === x + 1) {
-                outputString += "<span class='" + markdownPatterns[m].pattern + "'>";
+                outputString += "<a class='" + markdownPatterns[m].pattern + "'>";
                 console.log("Started")
             }
             if (markdownPatterns[m].endIndex === x) {
-                outputString += "</span>";
+                outputString += "</a>";
             }
+        }
+    }
+    return outputString;
+}
+
+function markdownToHtmlNotVisible(input) {
+    var markdownPatterns = getMarkdownPatterns(input);
+    var outputString = ""
+
+    for (var x = 0; x < input.length; x++) {
+        currentChar = input[x];
+        for (var m = 0; m < markdownPatterns.length; m++) {
+            if (markdownPatterns[m].startIndex === x + 1) {
+                outputString += "<a class='" + markdownPatterns[m].pattern + "'>";
+            }
+            if (markdownPatterns[m].endIndex === x) {
+                outputString += "</a>";
+            }
+        }
+
+        var shouldRender = true;
+        for (var m = 0; m < markdownPatterns.length; m++) {
+          if (markdownPatterns[m].shouldRenderChar(x, currentChar) == false) {
+            shouldRender = false;
+          }
+        }
+        if (shouldRender) {
+          outputString += currentChar;
         }
     }
     return outputString;

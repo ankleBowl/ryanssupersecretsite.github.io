@@ -73,11 +73,16 @@ class markdownResult:
     def __str__(self):
         return "Found pattern " + self.pattern + " starting at " + str(self.startIndex) + " and ending at " + str(self.endIndex) + "\n" + str(self.wordsInBlankSpace) + " was contained in blank space"
         
+    def shouldRenderChar(self, character):
+        if character in self.pattern:
+            return True
+        return False
+
 patterns = [ markdownPattern("[!](!)"), markdownPattern("*!*"), markdownPattern("**!**") ]
 
 markdownPatterns = []
 
-inputString = "Markdown *is* cool, my **parser** can even handle links like [Test](https://www.google.com)."
+inputString = "Markdown *is* cool, my **parser** can even handle links like [Test](https://www.google.com).`"
 
 for x in range(len(inputString)) :
     currentChar = inputString[x]
