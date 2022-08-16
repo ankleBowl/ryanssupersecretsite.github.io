@@ -67,7 +67,7 @@
     // Utility functions
     function loadNote(name) {
         console.log("Loading Note: " + name);
-        saveNote(currentNoteName)
+        saveNote(currentNoteName, currentNoteContents)
         currentNoteName = name;
         document.getElementById("notename").innerText = name;
 
@@ -90,7 +90,7 @@
     function changeNoteName(name) {
         var newName = prompt("Enter a new name for the note");
         console.log("Changing Note Name: " + name + " to " + newName);
-        saveNote(currentNoteName)
+        saveNote(currentNoteName, currentNoteContents);
         renameNote(name, newName)
         document.getElementById("leftsection").innerHTML = "";
         createNoteList();
@@ -99,7 +99,7 @@
 
     function changeNoteName(name, newName) {
         console.log("Changing Note Name: " + name + " to " + newName);
-        saveNote(currentNoteName)
+        saveNote(currentNoteName, currentNoteContents)
         renameNote(name, newName)
         document.getElementById("leftsection").innerHTML = "";
         createNoteList();
@@ -109,7 +109,7 @@
     function createNewNote() {
         var newName = prompt("Enter a name for the new note");
         console.log("Creating New Note: " + newName);
-        saveNote(currentNoteName)
+        saveNote(currentNoteName, currentNoteContents)
         createNote(newName)
         document.getElementById("leftsection").innerHTML = "";
         createNoteList();
@@ -148,11 +148,12 @@
     loadNote(noteNames[0]);
 
     // For checking when to save
-    var document = document.getElementById('editor');
-    document.addEventListener('keydown', function(e) {
+    var document1 = document.getElementById('editor');
+    document1.addEventListener('keydown', function(e) {
         lastkeyboardclick = new Date().getTime();
         edited = true;
-        currentNoteContents = document.innerHTML;
+        currentNoteContents = document.getElementById("editor").innerHTML;
+        console.log(currentNoteContents);
     })
 
     // Save the current note every second where there is no typing

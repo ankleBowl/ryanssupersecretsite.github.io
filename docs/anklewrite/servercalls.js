@@ -80,7 +80,7 @@ function renameNote(name, newName) {
     }
 }
 
-function saveNote(name) {
+function saveNote(name, currentNoteContents) {
     var state = postURL(serverAddress + sessionID + "/savenote/" + name, currentNoteContents);
     console.log("Saving Note: " + name + " returned " + state);
     if (state == "Invalid token" || state == "Note does not exist") {
