@@ -66,6 +66,9 @@
 
     // Utility functions
     function loadNote(name) {
+        if (inViewMode) {
+            toggleViewMode();
+        }
         console.log("Loading Note: " + name);
         saveNote(currentNoteName, currentNoteContents)
         currentNoteName = name;
@@ -142,6 +145,17 @@
         document.getElementById("leftsection").innerHTML += langAd;
         let createNote = "<div onclick=\"createNewNote()\" class=\"horizontalFlex listItem\" style=\"background-color: var(--accentcolor1);\"><div style=\"text-align: center;\">Create New Note</div></div>"
         document.getElementById("leftsection").innerHTML += createNote;
+    }
+
+    function toggleViewMode() {
+        inViewMode = !inViewMode;
+        if (inViewMode) {
+            document.getElementById("editor").contentEditable = false;
+            document.getElementById("editor").innerHTML = markdownToHtmlNotVisible(currentNoteContents);
+        } else {
+            document.getElementById("editor").contentEditable = true;
+            document.getElementById("editor").innerHTML = currentNoteContents;
+        }
     }
     
     createNoteList();

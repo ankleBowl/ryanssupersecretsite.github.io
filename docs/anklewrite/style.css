@@ -126,3 +126,11 @@ textarea {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
+
+.italics {
+    font-style: italic;
+}
+
+.bold {
+    font-weight: bold;
+}

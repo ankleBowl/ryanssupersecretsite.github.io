@@ -92,9 +92,14 @@ class markdownResult {
   }
 }
 
-// inputString = "Markdown *is* cool, my **parser** can even handle links like [Test](https://www.google.com).";
+
+markdownPatternsToClass = {
+  "*!*": "italics",
+  "**!**": "bold"
+}
+
 function getMarkdownPatterns(input) {
-    patterns = [ new markdownPattern("[!](!)"), new markdownPattern("*!*"), new markdownPattern("**!**")];
+    patterns = [ new markdownPattern("*!*"), new markdownPattern("**!**")];
     markdownPatterns = [];
 
     for (var x = 0, _pj_a = input.length; x < _pj_a; x += 1) {
@@ -112,27 +117,6 @@ function getMarkdownPatterns(input) {
     return markdownPatterns;
 }
 
-function markdownToHtmlVisible(input) {
-    var markdownPatterns = getMarkdownPatterns(input);
-    var outputString = ""
-
-    for (var x = 0; x < input.length; x++) {
-        currentChar = input[x];
-        outputString += currentChar;
-        for (var m = 0; m < markdownPatterns.length; m++) {
-            console.log(markdownPatterns[m].pattern);
-            if (markdownPatterns[m].startIndex === x + 1) {
-                outputString += "<a class='" + markdownPatterns[m].pattern + "'>";
-                console.log("Started")
-            }
-            if (markdownPatterns[m].endIndex === x) {
-                outputString += "</a>";
-            }
-        }
-    }
-    return outputString;
-}
-
 function markdownToHtmlNotVisible(input) {
     var markdownPatterns = getMarkdownPatterns(input);
     var outputString = ""
@@ -141,7 +125,7 @@ function markdownToHtmlNotVisible(input) {
         currentChar = input[x];
         for (var m = 0; m < markdownPatterns.length; m++) {
             if (markdownPatterns[m].startIndex === x + 1) {
-                outputString += "<a class='" + markdownPatterns[m].pattern + "'>";
+                outputString += "<a class='" + markdownPatternsToClass[markdownPatterns[m].pattern] + "'>";
             }
             if (markdownPatterns[m].endIndex === x) {
                 outputString += "</a>";
@@ -158,5 +142,6 @@ function markdownToHtmlNotVisible(input) {
           outputString += currentChar;
         }
     }
+    console.log("Converted text to markdown")
     return outputString;
 }
