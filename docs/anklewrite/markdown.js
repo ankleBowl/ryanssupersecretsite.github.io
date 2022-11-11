@@ -88,6 +88,11 @@ class markdownResult {
 
       }
     }
+
+    if (this.pattern == "[!](!)") {
+      // Don't render anything if it is a link
+      return false;
+    }
     return true;
   }
 }
@@ -95,11 +100,12 @@ class markdownResult {
 
 markdownPatternsToClass = {
   "*!*": "italics",
-  "**!**": "bold"
+  "**!**": "bold",
+  "[!](!)": "link"
 }
 
 function getMarkdownPatterns(input) {
-    patterns = [ new markdownPattern("*!*"), new markdownPattern("**!**")];
+    patterns = [ new markdownPattern("*!*"), new markdownPattern("**!**"), new markdownPattern("[!](!)")];
     markdownPatterns = [];
 
     for (var x = 0, _pj_a = input.length; x < _pj_a; x += 1) {
@@ -125,7 +131,12 @@ function markdownToHtmlNotVisible(input) {
         currentChar = input[x];
         for (var m = 0; m < markdownPatterns.length; m++) {
             if (markdownPatterns[m].startIndex === x + 1) {
-                outputString += "<a class='" + markdownPatternsToClass[markdownPatterns[m].pattern] + "'>";
+                if (markdownPatternsToClass[markdownPatterns[m].pattern] === "link") {
+                  // Is a link
+                  outputString += "<a href='" + markdownPatterns[m].wordsInBlankSpace[1] + "'>" + markdownPatterns[m].wordsInBlankSpace[0] + "</a>";
+                } else {
+                  outputString += "<a class='" + markdownPatternsToClass[markdownPatterns[m].pattern] + "'>";
+                }
             }
             if (markdownPatterns[m].endIndex === x) {
                 outputString += "</a>";
